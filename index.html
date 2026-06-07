@@ -273,32 +273,8 @@
         .mobile-menu.open a:nth-child(4) {
             transition-delay: 0.15s;
         }
-        .mobile-menu.open a:nth-child(5) {
-            transition-delay: 0.2s;
-        }
         .mobile-menu a:hover {
             color: var(--rose);
-        }
-        .mobile-close {
-            position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            font-size: 1.5rem;
-            color: var(--noir);
-            cursor: pointer;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            background: white;
-            transition: var(--transition);
-            opacity: 0;
-        }
-        .mobile-menu.open .mobile-close {
-            opacity: 1;
-            transition-delay: 0.3s;
         }
 
         /* ======= HERO ======= */
@@ -752,51 +728,17 @@
             background: linear-gradient(135deg, var(--cream), var(--rose-pale));
         }
         .about-content {
-            max-width: 1100px;
+            max-width: 800px;
             margin: 0 auto;
             padding: clamp(3rem, 5vw, 5rem) clamp(1rem, 3vw, 3rem);
-        }
-        .about-split {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: clamp(2rem, 5vw, 5rem);
-            align-items: center;
-            margin-bottom: clamp(4rem, 6vw, 6rem);
-        }
-        .about-split.reverse {
-            direction: rtl;
-        }
-        .about-split.reverse>* {
-            direction: ltr;
-        }
-        .about-img-frame {
-            border-radius: clamp(18px, 2.5vw, 24px);
-            overflow: hidden;
-            aspect-ratio: 4/5;
-            background: var(--cream-dark);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            max-height: 500px;
-        }
-        .about-img-frame img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            padding: clamp(1rem, 2vw, 2rem);
-        }
-        .about-img-frame::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(232, 85, 138, 0.1), transparent);
-            pointer-events: none;
-        }
-        .about-text-block {
             display: flex;
             flex-direction: column;
-            gap: clamp(1rem, 1.5vw, 1.5rem);
+            gap: clamp(3rem, 5vw, 5rem);
+        }
+        .about-text-block {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto;
         }
         .about-quote {
             font-family: 'Cormorant Garamond', serif;
@@ -804,38 +746,16 @@
             font-style: italic;
             color: var(--rose);
             line-height: 1.3;
+            margin-bottom: 1.5rem;
         }
         .about-para {
             font-size: clamp(0.88rem, 1.05vw, 1rem);
             color: var(--gray-soft);
             line-height: 1.8;
+            margin-bottom: 0.8rem;
         }
-        .values-row {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
-            gap: clamp(1.5rem, 2vw, 2rem);
-            margin-top: clamp(3rem, 4vw, 4rem);
-        }
-        .value-card {
-            background: white;
-            border-radius: clamp(16px, 2vw, 20px);
-            padding: clamp(1.5rem, 2vw, 2rem);
-            text-align: center;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
-        }
-        .value-icon {
-            font-size: clamp(2rem, 3vw, 2.5rem);
-            margin-bottom: 1rem;
-            color: var(--rose);
-        }
-        .value-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(1rem, 1.3vw, 1.2rem);
-            margin-bottom: 0.6rem;
-        }
-        .value-desc {
-            font-size: clamp(0.78rem, 0.9vw, 0.85rem);
-            color: var(--gray-soft);
+        .about-para:last-child {
+            margin-bottom: 0;
         }
 
         /* ======= CONTACT PAGE ======= */
@@ -1147,16 +1067,6 @@
             .carousel-slide {
                 width: calc((100% - 1 * clamp(0.8rem, 1.5vw, 1.5rem)) / 2);
             }
-            .about-split {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-            .about-split.reverse {
-                direction: ltr;
-            }
-            .about-img-frame {
-                max-height: 400px;
-            }
             .contact-grid {
                 grid-template-columns: 1fr;
                 gap: 3rem;
@@ -1182,19 +1092,9 @@
             .hero-content {
                 padding: 0 1.2rem;
             }
-            .about-split {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            .about-split.reverse {
-                direction: ltr;
-            }
             .contact-grid {
                 grid-template-columns: 1fr;
                 gap: 2.5rem;
-            }
-            .values-row {
-                grid-template-columns: 1fr 1fr;
             }
             .home-section {
                 padding: 3rem 1.2rem;
@@ -1319,21 +1219,11 @@
             .about-content {
                 padding: 2rem 1rem;
             }
-            .about-img-frame {
-                max-height: 300px;
-                border-radius: 14px;
-            }
             .about-quote {
                 font-size: 1.1rem;
             }
             .about-para {
                 font-size: 0.82rem;
-            }
-            .values-row {
-                grid-template-columns: 1fr;
-            }
-            .value-card {
-                padding: 1.2rem;
             }
             footer {
                 padding: 2.5rem 1rem 1.5rem;
@@ -1433,9 +1323,8 @@
         </div>
     </header>
 
-    <!-- MOBILE MENU -->
+    <!-- MOBILE MENU (sans bouton close) -->
     <div class="mobile-menu" id="mobileMenu">
-        <span class="mobile-close" onclick="toggleMenu()"><i class="fa-solid fa-xmark"></i></span>
         <a href="#" onclick="navigate('home'); toggleMenu()">Accueil</a>
         <a href="#" onclick="navigate('shop'); toggleMenu()">Boutique</a>
         <a href="#" onclick="navigate('about'); toggleMenu()">À propos</a>
@@ -1638,45 +1527,18 @@
         </div>
 
         <div class="about-content">
-            <div class="about-split">
-                </div>
-                <div class="about-text-block">
-                    <div class="about-quote">"La pâtisserie est ma façon d'offrir un peu de bonheur au monde."</div>
-                    <p class="about-para">Tout a commencé dans une petite cuisine, avec de la farine, du beurre, et une passion dévorante pour les saveurs. J'ai toujours cru que la pâtisserie était bien plus qu'une simple recette — c'est une émotion, un souvenir, un moment de pur bonheur.</p>
-                    <p class="about-para">Après des années de perfectionnement de mon art, j'ai décidé de partager mes créations avec le monde entier, en créant <strong>Délice by Naoual</strong> une boutique 100% artisanale où chaque commande est une œuvre unique, façonnée avec amour.</p>
-                </div>
+            <!-- Bloc 1 : sans image, texte centré -->
+            <div class="about-text-block">
+                <div class="about-quote">"La pâtisserie est ma façon d'offrir un peu de bonheur au monde."</div>
+                <p class="about-para">Tout a commencé dans une petite cuisine, avec de la farine, du beurre, et une passion dévorante pour les saveurs. J'ai toujours cru que la pâtisserie était bien plus qu'une simple recette — c'est une émotion, un souvenir, un moment de pur bonheur.</p>
+                <p class="about-para">Après des années de perfectionnement de mon art, j'ai décidé de partager mes créations avec le monde entier, en créant <strong>Délice by Naoual</strong> une boutique 100% artisanale où chaque commande est une œuvre unique, façonnée avec amour.</p>
             </div>
 
-            <div class="about-split reverse">
-                </div>
-                <div class="about-text-block">
-                    <div class="about-quote">"Chaque création est une promesse de délice et d'émerveillement."</div>
-                    <p class="about-para">Spécialisée dans les trompe-l'œil artistiques, je repousse les limites de la pâtisserie traditionnelle. Mes créations sont de véritables illusions comestibles un fruit qui se révèle être un gâteau.</p>
-                    <p class="about-para">Chaque commande est préparée sur-mesure, avec les meilleurs ingrédients et une attention portée aux moindres détails. Parce que chez Délice by Naoual, tu ne commandes pas juste un gâteau tu commandes une expérience.</p>
-                </div>
-            </div>
-
-            <!-- VALUES -->
-            <div style="text-align:center;margin-bottom:3rem">
-                <p class="section-tag">✦ Mes valeurs</p>
-                <h2 style="font-size:clamp(1.5rem,3vw,2rem)">Ce qui me définit</h2>
-            </div>
-            <div class="values-row reveal">
-                <div class="value-card">
-                    <div class="value-icon"><i class="fa-solid fa-hand-sparkles"></i></div>
-                    <div class="value-title">Artisanat authentique</div>
-                    <div class="value-desc">Chaque pièce est créée entièrement à la main, sans jamais sacrifier la qualité pour la quantité.</div>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-                    <div class="value-title">Excellence absolue</div>
-                    <div class="value-desc">Ingrédients premium, techniques maîtrisées, finitions parfaites rien n'est laissé au hasard.</div>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon"><i class="fa-solid fa-heart"></i></div>
-                    <div class="value-title">Personnalisation totale</div>
-                    <div class="value-desc">Tes rêves deviennent réalité chaque création peut être adaptée à tes envies et ton occasion.</div>
-                </div>
+            <!-- Bloc 2 : sans image, texte centré -->
+            <div class="about-text-block">
+                <div class="about-quote">"Chaque création est une promesse de délice et d'émerveillement."</div>
+                <p class="about-para">Spécialisée dans les trompe-l'œil artistiques, je repousse les limites de la pâtisserie traditionnelle. Mes créations sont de véritables illusions comestibles un fruit qui se révèle être un gâteau.</p>
+                <p class="about-para">Chaque commande est préparée sur-mesure, avec les meilleurs ingrédients et une attention portée aux moindres détails. Parce que chez Délice by Naoual, tu ne commandes pas juste un gâteau tu commandes une expérience.</p>
             </div>
         </div>
     </div>
@@ -1738,24 +1600,27 @@
 
                 <div>
                     <h3 style="font-family:'Playfair Display',serif;font-size:clamp(1.1rem,1.5vw,1.3rem);margin-bottom:1.5rem">Demande de commande</h3>
-                    <div class="contact-form" id="contactForm">
+                    <form id="contactForm" class="contact-form" action="https://formsubmit.co/delicebynaoual@gmail.com" method="POST">
+                        <input type="hidden" name="_subject" value="Nouvelle demande de commande - Délice by Naoual">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_next" value="false">
                         <div class="form-group">
-                            <label class="form-label">Nom complet</label>
-                            <input type="text" class="form-input" placeholder="Ton nom" id="contactName">
+                            <label class="form-label" for="contactName">Nom complet</label>
+                            <input type="text" class="form-input" name="name" id="contactName" placeholder="Ton nom" required>
                         </div>
                         <div class="form-group">
-                            <label class="form-label">Email</label>
-                            <input type="email" class="form-input" placeholder="ton@email.com" id="contactEmail">
+                            <label class="form-label" for="contactEmail">Email</label>
+                            <input type="email" class="form-input" name="email" id="contactEmail" placeholder="ton@email.com" required>
                         </div>
                         <div class="form-group">
-                            <label class="form-label">Ta demande</label>
-                            <textarea class="form-textarea" placeholder="Décris ton projet, la création souhaitée, la date..." id="contactMsg"></textarea>
+                            <label class="form-label" for="contactMsg">Ta demande</label>
+                            <textarea class="form-textarea" name="message" id="contactMsg" placeholder="Décris ton projet, la création souhaitée, la date..." required></textarea>
                         </div>
-                        <button class="form-submit" onclick="sendContactForm()">
+                        <button type="submit" class="form-submit">
                             <i class="ph ph-paper-plane-tilt"></i>
                             Envoyer la demande
                         </button>
-                    </div>
+                    </form>
                     <div id="contactSuccess" style="display:none;text-align:center;padding:3rem 2rem">
                         <div style="font-size:3rem;margin-bottom:1rem"><i class="fa-solid fa-envelope-circle-check" style="color:var(--rose)"></i></div>
                         <h3 style="font-family:'Playfair Display',serif;font-size:1.5rem;margin-bottom:0.8rem">Demande envoyée !</h3>
@@ -1936,7 +1801,6 @@
                 setCarousel(0);
                 startCarouselAuto();
 
-                // Touch swipe sur le track
                 let startX = 0,
                     isDragging = false;
                 track.addEventListener('touchstart', e => {
@@ -2020,18 +1884,30 @@
             }
 
             /* ========== FORMULAIRE CONTACT ========== */
-            function sendContactForm() {
-                const name = document.getElementById('contactName')?.value.trim();
-                const email = document.getElementById('contactEmail')?.value.trim();
-                const msg = document.getElementById('contactMsg')?.value.trim();
-                if (!name || !email || !msg) {
-                    showToast('<i class="fa-solid fa-triangle-exclamation"></i> Merci de remplir tous les champs !');
-                    return;
-                }
-                document.getElementById('contactForm').style.display = 'none';
-                document.getElementById('contactSuccess').style.display = 'block';
-                showToast('<i class="fa-solid fa-envelope"></i> Demande envoyée ! Réponse sous 48h.');
-            }
+            const contactForm = document.getElementById('contactForm');
+            const contactSuccess = document.getElementById('contactSuccess');
+
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const formData = new FormData(contactForm);
+                fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        contactForm.style.display = 'none';
+                        contactSuccess.style.display = 'block';
+                        showToast('<i class="fa-solid fa-envelope-circle-check"></i> Demande envoyée avec succès ! Réponse sous 48h.');
+                    } else {
+                        showToast('<i class="fa-solid fa-triangle-exclamation"></i> Une erreur est survenue. Réessaie plus tard.');
+                    }
+                })
+                .catch(() => {
+                    showToast('<i class="fa-solid fa-triangle-exclamation"></i> Erreur réseau. Vérifie ta connexion.');
+                });
+            });
 
             /* ========== TOAST ========== */
             function showToast(msg) {
@@ -2081,12 +1957,10 @@
                 }
             });
 
-            // Empêche le rechargement sur les clics de navigation
             document.querySelectorAll('nav a, .mobile-menu a').forEach(a => {
                 a.addEventListener('click', e => e.preventDefault());
             });
 
-            // Écouteurs hover/touch sur le carousel wrapper
             const carouselWrapper = document.querySelector('.carousel-wrapper');
             if (carouselWrapper) {
                 carouselWrapper.addEventListener('mouseenter', stopCarouselAuto);
@@ -2104,11 +1978,9 @@
             initCarouselDots();
             setCarousel(0);
 
-            // Exposition des fonctions nécessaires dans le scope global
             window.navigate = navigate;
             window.toggleMenu = toggleMenu;
             window.moveCarousel = moveCarousel;
-            window.sendContactForm = sendContactForm;
         })();
     </script>
 </body>
