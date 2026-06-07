@@ -2,349 +2,2114 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BATICONFORT</title>
-    <meta name="description" content="SARL BATICONFORT, expert en plâtrerie à Morsbach (57600). Cloisons, faux plafonds, enduits, isolation thermique. Certifié RGE, Qualibat, assurance décennale. Devis gratuit 07 71 61 46 57">
-    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
-    
-    <!-- Preconnect & Preload -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Délice by Naoual</title>
+    <meta name="description" content="Contactez Naoual pour commandes de gâteaux, trompe-l'œil et pâtisseries artisanales. Téléphone, email, Snapchat & Instagram.">
+    <meta property="og:title" content="Délice by Naoual">
+    <meta property="og:description" content="Contactez Naoual pour commandes de gâteaux, trompe-l'œil et pâtisseries artisanales. Téléphone, email, Snapchat & Instagram.">
+    <meta property="og:image" content="https://delicebynaoual.github.io/Delice-by-Naoual/image/gateau.png">
+    <meta property="og:url" content="https://delicebynaoual.github.io/Delice-by-Naoual/">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image" href="image/gateau.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap">
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    
-    <!-- Responsive image ordering -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
     <style>
-        @media (max-width: 992px) {
-            .hero-content {
-                flex-direction: column;
+        :root {
+            --cream: #FDF8F3;
+            --cream-dark: #F5EDE0;
+            --gold: #C9A96E;
+            --gold-light: #E8D4A8;
+            --gold-dark: #9C7A3C;
+            --rose: #E8558A;
+            --rose-light: #F7C5D9;
+            --rose-pale: #FDF0F5;
+            --noir: #1A1010;
+            --choco: #3D1C02;
+            --choco-light: #6B3A1F;
+            --white-warm: #FFFAF6;
+            --gray-soft: #8A7B6F;
+            --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+            -webkit-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Jost', sans-serif;
+            background: var(--cream);
+            color: var(--noir);
+            overflow-x: hidden;
+            line-height: 1.6;
+            min-height: 100vh;
+            min-height: 100dvh;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Playfair Display', serif;
+            line-height: 1.2;
+        }
+
+        p {
+            font-family: 'Jost', sans-serif;
+            font-weight: 300;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            height: auto;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-family: 'Jost', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+
+        /* ======= SCROLLBAR ======= */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--cream);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border-radius: 3px;
+        }
+
+        /* ======= PAGE SYSTEM ======= */
+        .page {
+            display: none;
+            min-height: 100vh;
+            min-height: 100dvh;
+            animation: fadeIn 0.4s ease;
+        }
+        .page.active {
+            display: block;
+        }
+
+        /* ======= HEADER ======= */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem clamp(1rem, 3vw, 3rem);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: var(--transition);
+            background: transparent;
+            gap: 1rem;
+        }
+        header.scrolled {
+            background: rgba(253, 248, 243, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 1px 30px rgba(0, 0, 0, 0.07);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            cursor: pointer;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .logo-img {
+            width: clamp(36px, 4vw, 44px);
+            height: clamp(36px, 4vw, 44px);
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--rose-light);
+            flex-shrink: 0;
+        }
+        .logo .by {
+            color: var(--rose);
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        nav {
+            display: flex;
+            gap: clamp(1rem, 2.5vw, 2.5rem);
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        nav a {
+            font-size: clamp(0.75rem, 1vw, 0.85rem);
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--noir);
+            position: relative;
+            padding-bottom: 3px;
+            transition: color var(--transition);
+            white-space: nowrap;
+        }
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1.5px;
+            background: var(--rose);
+            transition: width var(--transition);
+        }
+        nav a:hover::after,
+        nav a.active::after {
+            width: 100%;
+        }
+        nav a:hover,
+        nav a.active {
+            color: var(--rose);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 1001;
+        }
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--noir);
+            transition: var(--transition);
+            border-radius: 2px;
+            transform-origin: center;
+        }
+        .hamburger.open span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+        .hamburger.open span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        .mobile-menu {
+            display: flex;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(253, 248, 243, 0.98);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            z-index: 999;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: clamp(1.5rem, 3vh, 2.5rem);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity var(--transition);
+        }
+        .mobile-menu.open {
+            opacity: 1;
+            pointer-events: all;
+        }
+        .mobile-menu a {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            color: var(--noir);
+            transition: color var(--transition);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.4s ease, transform 0.4s ease, color var(--transition);
+        }
+        .mobile-menu.open a {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .mobile-menu.open a:nth-child(2) {
+            transition-delay: 0.05s;
+        }
+        .mobile-menu.open a:nth-child(3) {
+            transition-delay: 0.1s;
+        }
+        .mobile-menu.open a:nth-child(4) {
+            transition-delay: 0.15s;
+        }
+        .mobile-menu.open a:nth-child(5) {
+            transition-delay: 0.2s;
+        }
+        .mobile-menu a:hover {
+            color: var(--rose);
+        }
+        .mobile-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 1.5rem;
+            color: var(--noir);
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: white;
+            transition: var(--transition);
+            opacity: 0;
+        }
+        .mobile-menu.open .mobile-close {
+            opacity: 1;
+            transition-delay: 0.3s;
+        }
+
+        /* ======= HERO ======= */
+        #hero {
+            height: 100vh;
+            height: 100dvh;
+            min-height: 600px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--rose-pale) 40%, var(--cream-dark) 100%);
+            z-index: 0;
+        }
+        .hero-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.35;
+            pointer-events: none;
+        }
+        .hero-orb-1 {
+            width: clamp(250px, 50vw, 500px);
+            height: clamp(250px, 50vw, 500px);
+            background: var(--rose-light);
+            top: -10%;
+            right: -10%;
+        }
+        .hero-orb-2 {
+            width: clamp(200px, 40vw, 400px);
+            height: clamp(200px, 40vw, 400px);
+            background: var(--gold-light);
+            bottom: -10%;
+            left: -10%;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 clamp(1rem, 3vw, 2rem);
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(201, 169, 110, 0.3);
+            padding: 0.45rem clamp(0.8rem, 1.5vw, 1.2rem);
+            border-radius: 50px;
+            font-size: clamp(0.65rem, 0.9vw, 0.78rem);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gold-dark);
+            margin-bottom: clamp(1rem, 2vw, 2rem);
+            animation: fadeInUp 0.8s ease both;
+        }
+        .hero-badge::before {
+            content: '✦';
+            color: var(--gold);
+        }
+        .hero-title {
+            font-size: clamp(2rem, 7vw, 5.5rem);
+            font-weight: 700;
+            line-height: 1.05;
+            margin-bottom: clamp(1rem, 2vw, 1.5rem);
+            animation: fadeInUp 0.9s 0.1s ease both;
+        }
+        .hero-title .highlight {
+            font-style: italic;
+            color: var(--rose);
+            position: relative;
+        }
+        .hero-slogan {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(0.95rem, 2.5vw, 1.5rem);
+            font-style: italic;
+            color: var(--gray-soft);
+            margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+            animation: fadeInUp 1s 0.2s ease both;
+        }
+        .hero-ctas {
+            display: flex;
+            gap: clamp(0.5rem, 1.5vw, 1rem);
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s 0.3s ease both;
+        }
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: var(--noir);
+            color: white;
+            padding: clamp(0.7rem, 1.2vw, 0.9rem) clamp(1.2rem, 2vw, 2rem);
+            border-radius: 50px;
+            font-size: clamp(0.78rem, 1vw, 0.88rem);
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+        .btn-primary:hover {
+            background: var(--rose);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(232, 85, 138, 0.35);
+        }
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: transparent;
+            color: var(--noir);
+            padding: clamp(0.7rem, 1.2vw, 0.9rem) clamp(1.2rem, 2vw, 2rem);
+            border-radius: 50px;
+            border: 1.5px solid var(--noir);
+            font-size: clamp(0.78rem, 1vw, 0.88rem);
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+        .btn-outline:hover {
+            border-color: var(--rose);
+            color: var(--rose);
+            transform: translateY(-3px);
+        }
+
+        /* ======= CAROUSEL ======= */
+        .carousel-section {
+            padding: clamp(3rem, 5vw, 5rem) 0;
+            overflow: hidden;
+            background: white;
+        }
+        .section-tag {
+            text-align: center;
+            font-size: clamp(0.68rem, 0.85vw, 0.75rem);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--rose);
+            margin-bottom: 0.8rem;
+            font-weight: 500;
+        }
+        .section-title {
+            text-align: center;
+            font-size: clamp(1.5rem, 4vw, 2.8rem);
+            color: var(--noir);
+            margin-bottom: clamp(2rem, 3vw, 3rem);
+        }
+        .carousel-wrapper {
+            position: relative;
+            padding: 0 clamp(2rem, 4vw, 4rem);
+        }
+        .carousel-viewport {
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        .carousel-track {
+            display: flex;
+            gap: clamp(0.8rem, 1.5vw, 1.5rem);
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform;
+        }
+        .carousel-slide {
+            flex-shrink: 0;
+            scroll-snap-align: start;
+            background: var(--cream);
+            border-radius: clamp(16px, 2vw, 24px);
+            overflow: hidden;
+            transition: transform var(--transition), box-shadow var(--transition);
+            cursor: pointer;
+            width: calc((100% - 2 * clamp(0.8rem, 1.5vw, 1.5rem)) / 3);
+        }
+        .carousel-slide:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        .carousel-img-wrap {
+            aspect-ratio: 1 / 1;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--cream-dark);
+        }
+        .carousel-img-wrap img {
+            width: 85%;
+            height: 85%;
+            object-fit: contain;
+            transition: transform 0.5s ease;
+        }
+        .carousel-slide:hover .carousel-img-wrap img {
+            transform: scale(1.08);
+        }
+        .carousel-flavor-icon {
+            position: absolute;
+            top: clamp(0.5rem, 1vw, 1rem);
+            left: clamp(0.5rem, 1vw, 1rem);
+            font-size: clamp(1.5rem, 2.5vw, 2rem);
+            opacity: 0.15;
+            pointer-events: none;
+            color: var(--gold-dark);
+        }
+        .carousel-info {
+            padding: clamp(0.8rem, 1.2vw, 1.2rem) clamp(1rem, 1.4vw, 1.4rem) clamp(1rem, 1.4vw, 1.4rem);
+            text-align: center;
+        }
+        .carousel-name {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+            margin-bottom: 0.3rem;
+        }
+        .carousel-flavor {
+            font-size: clamp(0.7rem, 0.85vw, 0.8rem);
+            color: var(--gray-soft);
+            margin-bottom: 1rem;
+        }
+        .carousel-btn {
+            background: white;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: clamp(36px, 4vw, 44px);
+            height: clamp(36px, 4vw, 44px);
+            border-radius: 50%;
+            border: 1.5px solid var(--noir);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 10;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            font-size: clamp(0.8rem, 1vw, 1rem);
+        }
+        .carousel-btn:hover {
+            background: var(--rose);
+            border-color: var(--rose);
+            color: white;
+        }
+        .carousel-btn:active {
+            transform: translateY(-50%) scale(0.95);
+        }
+        .carousel-prev {
+            left: clamp(0.3rem, 0.5vw, 0.5rem);
+        }
+        .carousel-next {
+            right: clamp(0.3rem, 0.5vw, 0.5rem);
+        }
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: clamp(1.5rem, 2vw, 2rem);
+            flex-wrap: wrap;
+        }
+        .carousel-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--gold-light);
+            transition: var(--transition);
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        .carousel-dot.active {
+            background: var(--rose);
+            width: 24px;
+            border-radius: 4px;
+        }
+
+        /* ======= BUTTONS ======= */
+        .btn-request {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--rose);
+            color: white;
+            padding: clamp(0.5rem, 0.7vw, 0.6rem) clamp(1rem, 1.4vw, 1.4rem);
+            border-radius: 50px;
+            font-size: clamp(0.72rem, 0.8vw, 0.8rem);
+            font-weight: 500;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-family: 'Jost', sans-serif;
+            white-space: nowrap;
+            text-decoration: none;
+        }
+        .btn-request:hover {
+            background: var(--noir);
+            transform: scale(1.05);
+        }
+
+        /* ======= SECTIONS HOMEPAGE ======= */
+        .home-section {
+            padding: clamp(3rem, 6vw, 6rem) clamp(1rem, 3vw, 3rem);
+        }
+        .home-section.alt {
+            background: var(--cream-dark);
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr));
+            gap: clamp(1rem, 2vw, 2rem);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .product-card {
+            background: white;
+            border-radius: clamp(16px, 2vw, 20px);
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+        }
+        .product-img-wrap {
+            aspect-ratio: 4/3;
+            background: var(--cream);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+        .product-img-wrap img {
+            width: 85%;
+            height: 85%;
+            object-fit: contain;
+            transition: transform 0.5s ease;
+        }
+        .product-card:hover .product-img-wrap img {
+            transform: scale(1.1);
+        }
+        .product-bg-icon {
+            position: absolute;
+            font-size: clamp(3rem, 5vw, 5rem);
+            opacity: 0.07;
+            bottom: 0.5rem;
+            right: 0.5rem;
+            pointer-events: none;
+            color: var(--gold-dark);
+        }
+        .product-info {
+            padding: clamp(1rem, 1.4vw, 1.2rem) clamp(1rem, 1.4vw, 1.4rem) clamp(1.2rem, 1.5vw, 1.5rem);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+        .product-category {
+            font-size: clamp(0.62rem, 0.7vw, 0.7rem);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--rose);
+            font-weight: 500;
+            margin-bottom: 0.4rem;
+        }
+        .product-name {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1rem, 1.2vw, 1.15rem);
+            margin-bottom: 0.4rem;
+        }
+        .product-desc {
+            font-size: clamp(0.75rem, 0.85vw, 0.82rem);
+            color: var(--gray-soft);
+            margin-bottom: 1.2rem;
+            line-height: 1.5;
+            flex: 1;
+        }
+        .product-footer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        /* ======= FEATURES ======= */
+        .features-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+            gap: clamp(1.5rem, 2vw, 2rem);
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: clamp(3rem, 5vw, 5rem) clamp(1rem, 3vw, 3rem);
+            text-align: center;
+        }
+        .feature-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: clamp(0.8rem, 1vw, 1rem);
+        }
+        .feature-icon {
+            width: clamp(52px, 7vw, 64px);
+            height: clamp(52px, 7vw, 64px);
+            border-radius: 50%;
+            background: var(--rose-pale);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+            color: var(--rose);
+        }
+        .feature-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+        }
+        .feature-desc {
+            font-size: clamp(0.75rem, 0.85vw, 0.82rem);
+            color: var(--gray-soft);
+        }
+
+        /* ======= BOUTIQUE PAGE ======= */
+        .shop-header {
+            padding: clamp(6rem, 8vw, 8rem) clamp(1rem, 3vw, 3rem) clamp(2rem, 3vw, 3rem);
+            text-align: center;
+            background: linear-gradient(to bottom, var(--rose-pale), var(--cream));
+        }
+        .shop-title {
+            font-size: clamp(1.8rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+        }
+        .shop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
+            gap: clamp(1.5rem, 2vw, 2rem);
+            padding: 0 clamp(1rem, 3vw, 3rem) clamp(4rem, 6vw, 6rem);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* ======= ABOUT PAGE ======= */
+        .about-hero {
+            padding: clamp(6rem, 8vw, 8rem) clamp(1rem, 3vw, 3rem) clamp(3rem, 4vw, 4rem);
+            text-align: center;
+            background: linear-gradient(135deg, var(--cream), var(--rose-pale));
+        }
+        .about-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: clamp(3rem, 5vw, 5rem) clamp(1rem, 3vw, 3rem);
+        }
+        .about-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(2rem, 5vw, 5rem);
+            align-items: center;
+            margin-bottom: clamp(4rem, 6vw, 6rem);
+        }
+        .about-split.reverse {
+            direction: rtl;
+        }
+        .about-split.reverse>* {
+            direction: ltr;
+        }
+        .about-img-frame {
+            border-radius: clamp(18px, 2.5vw, 24px);
+            overflow: hidden;
+            aspect-ratio: 4/5;
+            background: var(--cream-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            max-height: 500px;
+        }
+        .about-img-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: clamp(1rem, 2vw, 2rem);
+        }
+        .about-img-frame::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(232, 85, 138, 0.1), transparent);
+            pointer-events: none;
+        }
+        .about-text-block {
+            display: flex;
+            flex-direction: column;
+            gap: clamp(1rem, 1.5vw, 1.5rem);
+        }
+        .about-quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+            font-style: italic;
+            color: var(--rose);
+            line-height: 1.3;
+        }
+        .about-para {
+            font-size: clamp(0.88rem, 1.05vw, 1rem);
+            color: var(--gray-soft);
+            line-height: 1.8;
+        }
+        .values-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+            gap: clamp(1.5rem, 2vw, 2rem);
+            margin-top: clamp(3rem, 4vw, 4rem);
+        }
+        .value-card {
+            background: white;
+            border-radius: clamp(16px, 2vw, 20px);
+            padding: clamp(1.5rem, 2vw, 2rem);
+            text-align: center;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
+        }
+        .value-icon {
+            font-size: clamp(2rem, 3vw, 2.5rem);
+            margin-bottom: 1rem;
+            color: var(--rose);
+        }
+        .value-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1rem, 1.3vw, 1.2rem);
+            margin-bottom: 0.6rem;
+        }
+        .value-desc {
+            font-size: clamp(0.78rem, 0.9vw, 0.85rem);
+            color: var(--gray-soft);
+        }
+
+        /* ======= CONTACT PAGE ======= */
+        .contact-page {
+            padding: clamp(6rem, 8vw, 8rem) clamp(1rem, 3vw, 3rem) clamp(4rem, 6vw, 6rem);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: clamp(2rem, 5vw, 5rem);
+            align-items: start;
+        }
+        .contact-info-block {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        .contact-title {
+            font-size: clamp(1.5rem, 4vw, 2.8rem);
+            margin-bottom: 1rem;
+        }
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--noir);
+            transition: color var(--transition);
+            font-size: clamp(0.85rem, 1vw, 0.95rem);
+        }
+        .contact-link:hover {
+            color: var(--rose);
+        }
+        .contact-link-icon {
+            width: clamp(42px, 5vw, 48px);
+            height: clamp(42px, 5vw, 48px);
+            border-radius: 14px;
+            background: var(--cream-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(1rem, 1.3vw, 1.2rem);
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+        .contact-link:hover .contact-link-icon {
+            background: var(--rose);
+            color: white;
+        }
+        .social-row {
+            display: flex;
+            gap: clamp(0.6rem, 1vw, 1rem);
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+        .social-btn {
+            width: clamp(42px, 5vw, 48px);
+            height: clamp(42px, 5vw, 48px);
+            border-radius: 14px;
+            background: var(--cream-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+            transition: var(--transition);
+            color: var(--noir);
+            flex-shrink: 0;
+        }
+        .social-btn:hover {
+            background: var(--rose);
+            color: white;
+            transform: translateY(-3px);
+        }
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: clamp(1rem, 1.2vw, 1.2rem);
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .form-label {
+            font-size: clamp(0.72rem, 0.85vw, 0.82rem);
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--gray-soft);
+        }
+        .form-input,
+        .form-textarea {
+            padding: 0.9rem 1.2rem;
+            border: 1.5px solid var(--cream-dark);
+            border-radius: 14px;
+            font-family: 'Jost', sans-serif;
+            font-size: clamp(0.88rem, 1vw, 0.95rem);
+            color: var(--noir);
+            background: white;
+            transition: border-color var(--transition);
+            outline: none;
+            resize: none;
+            width: 100%;
+        }
+        .form-input:focus,
+        .form-textarea:focus {
+            border-color: var(--rose);
+        }
+        .form-textarea {
+            height: 140px;
+            min-height: 100px;
+        }
+        .form-submit {
+            background: var(--noir);
+            color: white;
+            padding: clamp(0.8rem, 1vw, 1rem) clamp(1.5rem, 2vw, 2rem);
+            border-radius: 50px;
+            font-size: clamp(0.8rem, 0.95vw, 0.9rem);
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-family: 'Jost', sans-serif;
+            align-self: flex-start;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        .form-submit:hover {
+            background: var(--rose);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(232, 85, 138, 0.35);
+        }
+        .form-submit:active {
+            transform: scale(0.96);
+        }
+
+        /* ======= TOAST ======= */
+        .toast {
+            position: fixed;
+            bottom: clamp(1.5rem, 2vh, 2rem);
+            left: 50%;
+            transform: translateX(-50%) translateY(120px);
+            background: var(--noir);
+            color: white;
+            padding: 0.9rem clamp(1.5rem, 2vw, 1.8rem);
+            border-radius: 50px;
+            font-size: clamp(0.78rem, 0.9vw, 0.88rem);
+            font-weight: 500;
+            z-index: 5000;
+            transition: transform var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            white-space: nowrap;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            max-width: 95vw;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* ======= FOOTER ======= */
+        footer {
+            background: var(--choco);
+            color: var(--cream);
+            padding: clamp(2.5rem, 4vw, 3.5rem) clamp(1rem, 3vw, 3rem) clamp(1.5rem, 2vw, 2rem);
+            text-align: center;
+        }
+        .footer-brand {
+            max-width: 550px;
+            margin: 0 auto;
+        }
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+            font-weight: 700;
+            color: var(--cream);
+            margin-bottom: 1rem;
+        }
+        .footer-logo-img {
+            width: clamp(32px, 3.5vw, 40px);
+            height: clamp(32px, 3.5vw, 40px);
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--rose-light);
+        }
+        .footer-logo .by {
+            color: var(--rose);
+            font-style: italic;
+            font-weight: 400;
+        }
+        .footer-desc {
+            font-size: clamp(0.75rem, 0.9vw, 0.85rem);
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.7;
+            margin-bottom: 0.8rem;
+        }
+        .footer-market {
+            font-size: clamp(0.72rem, 0.85vw, 0.8rem);
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        .footer-market i {
+            color: var(--gold-light);
+            margin-right: 0.3rem;
+        }
+        .footer-social {
+            display: flex;
+            gap: 0.8rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+        .footer-social-btn {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            color: var(--cream);
+            transition: var(--transition);
+            cursor: pointer;
+            flex-shrink: 0;
+            text-decoration: none;
+        }
+        .footer-social-btn:hover {
+            background: var(--rose);
+        }
+        .footer-bottom {
+            max-width: 550px;
+            margin: 1.5rem auto 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .footer-copy {
+            font-size: clamp(0.7rem, 0.8vw, 0.78rem);
+            color: rgba(255, 255, 255, 0.4);
+        }
+        .footer-made {
+            font-size: clamp(0.7rem, 0.8vw, 0.78rem);
+            color: rgba(255, 255, 255, 0.4);
+        }
+        .footer-made span {
+            color: var(--rose);
+        }
+
+        /* ======= ANIMATIONS ======= */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
             }
-            .profile-image-container {
-                order: -1;
-                margin-bottom: 2rem;
-            }
-            .history-content {
-                flex-direction: column;
-            }
-            .history-image {
-                order: -1;
-                margin-bottom: 2rem;
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
-        @media (min-width: 993px) {
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ======= HIGHLIGHT NOTE ======= */
+        .highlight-note {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: var(--rose-pale);
+            color: var(--rose);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: clamp(0.7rem, 0.8vw, 0.78rem);
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            margin-top: 0.6rem;
+        }
+
+        /* ======= RESPONSIVE BREAKPOINTS ======= */
+        @media (max-width: 1024px) {
+            .carousel-slide {
+                width: calc((100% - 1 * clamp(0.8rem, 1.5vw, 1.5rem)) / 2);
+            }
+            .about-split {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .about-split.reverse {
+                direction: ltr;
+            }
+            .about-img-frame {
+                max-height: 400px;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+        }
+
+        @media (max-width: 900px) {
+            header {
+                padding: 0.8rem 1.2rem;
+            }
+            nav {
+                display: none;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .carousel-slide {
+                width: calc((100% - 0 * clamp(0.8rem, 1.5vw, 1.5rem)) / 1);
+            }
+            .carousel-wrapper {
+                padding: 0 clamp(1.5rem, 3vw, 2.5rem);
+            }
             .hero-content {
-                display: flex;
-                flex-direction: row-reverse;
+                padding: 0 1.2rem;
+            }
+            .about-split {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .about-split.reverse {
+                direction: ltr;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+            .values-row {
+                grid-template-columns: 1fr 1fr;
+            }
+            .home-section {
+                padding: 3rem 1.2rem;
+            }
+            .shop-grid {
+                padding: 0 1.2rem 3rem;
+            }
+            .product-grid {
+                grid-template-columns: repeat(auto-fill, minmax(min(220px, 100%), 1fr));
+            }
+            .shop-grid {
+                grid-template-columns: repeat(auto-fill, minmax(min(240px, 100%), 1fr));
+            }
+        }
+
+        @media (max-width: 600px) {
+            html {
+                font-size: 15px;
+            }
+            header {
+                padding: 0.6rem 1rem;
+            }
+            .logo {
+                font-size: 1.1rem;
+            }
+            .logo-img {
+                width: 30px;
+                height: 30px;
+            }
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            .hero-slogan {
+                font-size: 0.9rem;
+            }
+            .hero-badge {
+                font-size: 0.6rem;
+                padding: 0.35rem 0.8rem;
+            }
+            .hero-ctas {
+                flex-direction: column;
                 align-items: center;
+                gap: 0.8rem;
             }
-            .hero-text {
-                flex: 1;
-                padding-left: 3rem;
+            .btn-primary,
+            .btn-outline {
+                width: 100%;
+                justify-content: center;
+                text-align: center;
+                padding: 0.8rem 1.5rem;
+                font-size: 0.8rem;
             }
-            .profile-image-container {
-                flex: 1;
+            .carousel-wrapper {
+                padding: 0 2rem;
             }
-            .history-content {
-                display: flex;
-                flex-direction: row-reverse;
-                align-items: center;
+            .carousel-slide {
+                width: 100%;
+                border-radius: 16px;
             }
-            .history-text {
-                flex: 1;
-                padding-left: 3rem;
+            .carousel-btn {
+                width: 32px;
+                height: 32px;
+                font-size: 0.7rem;
             }
-            .history-image {
-                flex: 1;
+            .carousel-prev {
+                left: 0.2rem;
+            }
+            .carousel-next {
+                right: 0.2rem;
+            }
+            .carousel-info {
+                padding: 0.8rem 1rem 1rem;
+            }
+            .carousel-name {
+                font-size: 0.9rem;
+            }
+            .features-row {
+                grid-template-columns: 1fr 1fr;
+                padding: 2rem 1rem;
+                gap: 1.5rem;
+            }
+            .feature-icon {
+                width: 44px;
+                height: 44px;
+                font-size: 1.1rem;
+            }
+            .feature-title {
+                font-size: 0.85rem;
+            }
+            .feature-desc {
+                font-size: 0.72rem;
+            }
+            .product-grid,
+            .shop-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 0.8rem;
+            }
+            .product-card {
+                border-radius: 14px;
+            }
+            .product-img-wrap {
+                aspect-ratio: 1/1;
+            }
+            .product-info {
+                padding: 0.8rem;
+            }
+            .product-name {
+                font-size: 0.85rem;
+            }
+            .product-desc {
+                font-size: 0.7rem;
+                margin-bottom: 0.8rem;
+            }
+            .btn-request {
+                font-size: 0.68rem;
+                padding: 0.4rem 0.8rem;
+                gap: 0.3rem;
+            }
+            .contact-page {
+                padding: 6rem 1rem 3rem;
+            }
+            .about-content {
+                padding: 2rem 1rem;
+            }
+            .about-img-frame {
+                max-height: 300px;
+                border-radius: 14px;
+            }
+            .about-quote {
+                font-size: 1.1rem;
+            }
+            .about-para {
+                font-size: 0.82rem;
+            }
+            .values-row {
+                grid-template-columns: 1fr;
+            }
+            .value-card {
+                padding: 1.2rem;
+            }
+            footer {
+                padding: 2.5rem 1rem 1.5rem;
+            }
+            .form-submit {
+                width: 100%;
+                justify-content: center;
+            }
+            .contact-link {
+                font-size: 0.82rem;
+            }
+            .contact-link-icon {
+                width: 38px;
+                height: 38px;
+                font-size: 1rem;
+            }
+            .social-btn {
+                width: 38px;
+                height: 38px;
+                font-size: 1rem;
+            }
+            .footer-logo-img {
+                width: 28px;
+                height: 28px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            html {
+                font-size: 14px;
+            }
+            .product-grid,
+            .shop-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .features-row {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+            .hero-title {
+                font-size: 1.5rem;
+            }
+            .hero-slogan {
+                font-size: 0.82rem;
+            }
+            .logo {
+                font-size: 1rem;
+            }
+            .logo-img {
+                width: 26px;
+                height: 26px;
+            }
+            .carousel-img-wrap {
+                aspect-ratio: 3/4;
+            }
+            .carousel-img-wrap img {
+                width: 90%;
+                height: 90%;
+            }
+            .section-title {
+                font-size: 1.3rem;
+            }
+            .section-tag {
+                font-size: 0.6rem;
+            }
+        }
+
+        /* ======= SAFE AREA SUPPORT ======= */
+        @supports(padding: env(safe-area-inset-bottom)) {
+            .toast {
+                bottom: calc(1.5rem + env(safe-area-inset-bottom));
+            }
+            .mobile-menu {
+                padding-bottom: env(safe-area-inset-bottom);
             }
         }
     </style>
-    
-    
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container nav-container">
-            <a href="index.html" class="logo">
-                <img src="assets/images/logo.jpg" alt="Logo Baticonfort - Plâtrerie Moselle" class="logo-image" width="60" height="60">
-                <span class="logo-text">BATI<span>CONFORT</span></span>
-            </a>
-            
-            <button class="menu-toggle" id="menuToggle" aria-label="Menu mobile" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html" class="active"><i class="fas fa-home"></i> Accueil</a></li>
-                <li><a href="services.html"><i class="fas fa-tools"></i> Services</a></li>
-                <li><a href="realisations.html"><i class="fas fa-images"></i> Réalisations</a></li>
-                <li><a href="equipe.html"><i class="fas fa-users"></i> Équipe</a></li>
-                <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
-                <li><a href="certifications.html"><i class="fas fa-award"></i> Certifications</a></li>
-            </ul>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header id="mainHeader">
+        <div class="logo" onclick="navigate('home')">
+            <img src="https://raw.githubusercontent.com/DeliceByNaoual/Delice-by-Naoual/main/image/gateau.png"
+            alt="Logo Délice by Naoual" class="logo-img">
+            Délice <span class="by">by</span> Naoual
         </div>
-    </nav>
-    
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
+        <nav>
+            <a href="#" onclick="navigate('home')" class="active" data-page="home">Accueil</a>
+            <a href="#" onclick="navigate('shop')" data-page="shop">Boutique</a>
+            <a href="#" onclick="navigate('about')" data-page="about">À propos</a>
+            <a href="#" onclick="navigate('contact')" data-page="contact">Contact</a>
+        </nav>
+        <div class="hamburger" onclick="toggleMenu()" id="hamburger" aria-label="Menu" role="button">
+            <span></span><span></span><span></span>
+        </div>
+    </header>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <span class="mobile-close" onclick="toggleMenu()"><i class="fa-solid fa-xmark"></i></span>
+        <a href="#" onclick="navigate('home'); toggleMenu()">Accueil</a>
+        <a href="#" onclick="navigate('shop'); toggleMenu()">Boutique</a>
+        <a href="#" onclick="navigate('about'); toggleMenu()">À propos</a>
+        <a href="#" onclick="navigate('contact'); toggleMenu()">Contact</a>
+    </div>
+
+    <!-- ========== PAGE: HOME ========== -->
+    <div class="page active" id="page-home">
+
+        <!-- HERO -->
+        <section id="hero">
+            <div class="hero-bg"></div>
+            <div class="hero-orb hero-orb-1"></div>
+            <div class="hero-orb hero-orb-2"></div>
             <div class="hero-content">
-                <div class="profile-image-container fade-in">
-                    <img src="assets/images/entreprise.jpg" class="profile-image" alt="Entreprise BATICONFORT - Plâtrerie professionnelle à Morsbach" width="600" height="600" loading="eager">
-                </div>
-                
-                <div class="hero-text fade-in">
-                    <h1 class="hero-title">BATI<span class="highlight">CONFORT</span></h1>
-                    <h2 class="hero-subtitle">L'art du plâtre, au service de votre <span class="hero-highlight">confort</span></h2>
-                    
-                    <div class="hero-quote">
-                        <i class="fas fa-quote-left quote-icon"></i>
-                        <span>De l'auto-entrepreneuriat en 2017 à une SARL en 2023, nous mettons notre expertise en plâtrerie au service de votre projet. Basés à Morsbach (57600), nous intervenons dans toute la Moselle et le Grand Est.</span>
-                    </div>
-                    
-                    <div class="hero-stats">
-                        <div class="stat">
-                            <span class="stat-number">8+</span>
-                            <span class="stat-label">Années d'expérience</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">500+</span>
-                            <span class="stat-label">Projets réalisés</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">100</span>
-                            <span class="stat-label"><i class="fa-solid fa-percent"></i> Satisfaction client</span>
-                        </div>
-                    </div>
-                    
-                    <div class="hero-buttons">
-                        <a href="contact.html" class="btn btn-primary">
-                            <i class="fas fa-file-signature"></i> Devis gratuit
-                        </a>
-                        <a href="tel:+33771614657" class="btn btn-secondary">
-                            <i class="fas fa-phone-alt"></i> 07 71 61 46 57
-                        </a>
-                    </div>
-                    
-                    <div class="hero-legal">
-                        <p><small><i class="fas fa-shield-alt"></i> SIREN 977 712 231 • SIRET 977 712 231 00025 • TVA FR71 977 712 231</small></p>
-                        <p><small><i class="fas fa-award"></i> Certifié RGE • Assurance décennale 10 000 €</small></p>
-                    </div>
+                <div class="hero-badge">Pâtisserie Artisanale • Sur commande</div>
+                <h1 class="hero-title">
+                    L'art de la<br>pâtisserie <span class="highlight">sublime</span>
+                </h1>
+                <p class="hero-slogan">"Le goût du bonheur dans chaque bouchée"</p>
+                <div class="hero-ctas">
+                    <a class="btn-primary" href="#" onclick="navigate('shop')">
+                        <i class="fa-solid fa-eye"></i>
+                        Voir les créations
+                    </a>
+                    <a class="btn-outline" href="#" onclick="navigate('contact')">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        Demander une commande
+                    </a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Services Section -->
-    <section id="services" class="services-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Nos Services de Plâtrerie</h2>
-                <p class="section-subtitle">Des prestations complètes pour tous vos projets de rénovation en Moselle et Grand Est</p>
+        <!-- FEATURES -->
+        <div class="features-row">
+            <div class="feature-item reveal">
+                <div class="feature-icon"><i class="fa-solid fa-truck-fast"></i></div>
+                <div class="feature-title">Livraison à domicile</div>
+                <div class="feature-desc">Tes créations livrées avec soin</div>
             </div>
-            
-            <div class="services-grid">
-                <!-- Service 1 -->
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-border-style"></i>
-                    </div>
-                    <h3>Cloisons & Placoplâtre</h3>
-                    <p>Installation de cloisons de distribution, doublages et séparations intérieures pour optimiser l'espace de votre habitat.</p>
-                    <div class="service-features">
-                        <span class="service-feature"><i class="fas fa-check"></i> Cloisons alvéolaires</span>
-                        <span class="service-feature"><i class="fas fa-check"></i> Doublages thermiques</span>
-                        <span class="service-feature"><i class="fas fa-check"></i> Séparations modulaires</span>
-                        <span class="service-feature"><i class="fas fa-check"></i> Placoplâtre sur mesure</span>
-                    </div>
-                    <a href="services.html#cloisons" class="btn btn-secondary btn-block mt-3">Découvrir</a>
-                </div>
-                
-                <!-- Service 2 -->
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-city"></i>
-                    </div>
-                    <h3>Faux Plafonds</h3>
-                    <p>Réalisation de tous types de plafonds suspendus, décoratifs, acoustiques ou techniques pour un intérieur moderne.</p>
-                    <div class="service-features">
-                        <span class="service-feature"><i class="fas fa-check"></i> Plafonds acoustiques</span>
-                        <span class="service-feature"><i class="fas fa-check"></i> Plafonds décoratifs</span>
-                        <span class="service-feature"><i class="fas fa-check"></i> Plafonds techniques</span>
-                        <span class="service-feature"><i class="fas fa-check"></i> Éclairage intégré</span>
-                    </div>
-                    <a href="services.html#plafonds" class="btn btn-secondary btn-block mt-3">Découvrir</a>
-                </div>
-                
-                <!-- Service 3 -->
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-paint-roller"></i>
-                    </div>
-                    <h3>Enduits & Finitions</h3>
-                    <p>Application d'enduits, crépi, staff et moulures pour une finition parfaite et une décoration sur mesure.</p>
-                    <div class="service-features">
-                        <span class="service-feature"><i class="fas fa-check"></i> Enduits décoratifs</span>
-                        <span class="service-feature"><i class="fas fa-check"></i> Finitions lissées</span>
-                        <span class="service-feature"><i class="fas fa-check"></i> Moulures sur mesure</span>
-                        <span class="service-feature"><i class="fas fa-check"></i> Staff et corniches</span>
-                    </div>
-                    <a href="services.html#enduits" class="btn btn-secondary btn-block mt-3">Découvrir</a>
-                </div>
-                
-                <!-- Service 4 -->
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-temperature-low"></i>
-                    </div>
-                    <h3>Isolation Thermique & Phonique</h3>
-                    <p>Solutions d'isolation performantes pour améliorer le confort et réduire les consommations énergétiques.</p>
-                    <div class="service-features">
-                        <span class="service-feature"><i class="fas fa-check"></i> Isolation laine minérale</span>
-                        <span class="service-feature"><i class="fas fa-check"></i> Isolation phonique</span>
-                        <span class="service-feature"><i class="fas fa-check"></i> Certifié RGE</span>
-                        <span class="service-feature"><i class="fas fa-check"></i> Aides financières</span>
-                    </div>
-                    <a href="services.html#isolation" class="btn btn-secondary btn-block mt-3">Découvrir</a>
-                </div>
-                
-                <!-- Service 5 -->
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-home"></i>
-                    </div>
-                    <h3>Rénovation Intérieure</h3>
-                    <p>Prise en charge complète de votre projet de rénovation, de la démolition à la finition.</p>
-                    <div class="service-features">
-                        <span class="service-feature"><i class="fas fa-check"></i> Rénovation complète</span>
-                        <span class="service-feature"><i class="fas fa-check"></i> Aménagement intérieur</span>
-                        <span class="service-feature"><i class="fas fa-check"></i> Suivi de chantier</span>
-                        <span class="service-feature"><i class="fas fa-check"></i> Nettoyage final</span>
-                    </div>
-                    <a href="services.html#renovation" class="btn btn-secondary btn-block mt-3">Découvrir</a>
-                </div>
-                
-                <!-- Service 6 -->
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fa-solid fa-couch"></i>
-                    </div>
-                    <h3>Décoration Staff</h3>
-                    <p>Réalisation de moulures, corniches et rosaces en staff pour un intérieur élégant et authentique.</p>
-                    <div class="service-features">
-                        <span class="service-feature"><i class="fas fa-check"></i> Corniches classiques</span>
-                        <span class="service-feature"><i class="fas fa-check"></i> Rosaces décoratives</span>
-                        <span class="service-feature"><i class="fas fa-check"></i> Moulures personnalisées</span>
-                        <span class="service-feature"><i class="fas fa-check"></i> Restauration staff</span>
-                    </div>
-                    <a href="services.html#staff" class="btn btn-secondary btn-block mt-3">Découvrir</a>
-                </div>
+            <div class="feature-item reveal">
+                <div class="feature-icon"><i class="fa-solid fa-star"></i></div>
+                <div class="feature-title">Artisanat premium</div>
+                <div class="feature-desc">Fait main avec amour</div>
             </div>
-            
-            <div class="text-center mt-5">
-                <a href="services.html" class="btn btn-primary">
-                    <i class="fas fa-list"></i> Voir tous nos services
-                </a>
+            <div class="feature-item reveal">
+                <div class="feature-icon"><i class="fa-solid fa-palette"></i></div>
+                <div class="feature-title">100% personnalisable</div>
+                <div class="feature-desc">Sur mesure pour toi</div>
+            </div>
+            <div class="feature-item reveal">
+                <div class="feature-icon"><i class="fa-solid fa-heart"></i></div>
+                <div class="feature-title">Fait avec passion</div>
+                <div class="feature-desc">Chaque création est unique</div>
             </div>
         </div>
-    </section>
-    
-    <!-- À Propos Section -->
-    <section class="about-section history-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Notre Histoire</h2>
-                <p class="section-subtitle">De l'auto-entrepreneuriat à la SARL 7 ans d'excellence en plâtrerie</p>
-            </div>
-            
-            <div class="history-content">
-                <div class="history-image">
-                    <img src="assets/images/entreprise.jpg" alt="L'équipe BATICONFORT - Artisans plâtriers" width="600" height="400" loading="lazy">
-                </div>
-                
-                <div class="history-text">
-                    <p><strong>BATICONFORT</strong> est né d'une passion pour le métier de plâtrier et d'une vision entrepreneuriale débutée en <strong>2017</strong>.</p>
-                    
-                    <div class="history-timeline">
-                        <div class="history-event">
-                            <div class="event-year">2017</div>
-                            <div class="event-content">
-                                <h4>Débuts en auto-entrepreneur</h4>
-                                <p>Lancement de l'activité avec une vision : redonner ses lettres de noblesse à la plâtrerie traditionnelle.</p>
+
+        <!-- CAROUSEL: TROMPE-L'ŒIL -->
+        <section class="carousel-section">
+            <p class="section-tag">✦ Collection signature</p>
+            <h2 class="section-title">Trompe-l'œil Artistiques</h2>
+            <div class="carousel-wrapper">
+                <button class="carousel-btn carousel-prev" onclick="moveCarousel(-1)" aria-label="Précédent"><i class="fa-solid fa-chevron-left"></i></button>
+                <div class="carousel-viewport">
+                    <div class="carousel-track" id="carouselTrack">
+                        <div class="carousel-slide" onclick="navigate('contact')">
+                            <div class="carousel-img-wrap">
+                                <i class="fa-solid fa-seedling carousel-flavor-icon"></i>
+                                <img src="https://raw.githubusercontent.com/zznkch/D-lice/main/trompe/cacahouete.png" alt="Trompe-l'œil Cacahuète" loading="lazy">
+                            </div>
+                            <div class="carousel-info">
+                                <div class="carousel-name">Trompe-l'œil Cacahuète</div>
+                                <div class="carousel-flavor">Trompe-l'œil artistique</div>
+                                <button class="btn-request" onclick="event.stopPropagation(); navigate('contact')">
+                                    <i class="fa-solid fa-paper-plane"></i> Demande commande
+                                </button>
                             </div>
                         </div>
-                        
-                        <div class="history-event">
-                            <div class="event-year">2020</div>
-                            <div class="event-content">
-                                <h4>Expansion et reconnaissance</h4>
-                                <p>Obtention de la certification RGE et élargissement de la zone d'intervention dans tout le Grand Est.</p>
+                        <div class="carousel-slide" onclick="navigate('contact')">
+                            <div class="carousel-img-wrap">
+                                <i class="ph ph-coffee-bean carousel-flavor-icon"></i>
+                                <img src="https://raw.githubusercontent.com/zznkch/D-lice/main/trompe/caf%C3%A9.png" alt="Trompe-l'œil Café" loading="lazy">
+                            </div>
+                            <div class="carousel-info">
+                                <div class="carousel-name">Trompe-l'œil Café</div>
+                                <div class="carousel-flavor">Trompe-l'œil artistique</div>
+                                <button class="btn-request" onclick="event.stopPropagation(); navigate('contact')">
+                                    <i class="fa-solid fa-paper-plane"></i> Demande commande
+                                </button>
                             </div>
                         </div>
-                        
-                        <div class="history-event">
-                            <div class="event-year">2023</div>
-                            <div class="event-content">
-                                <h4>Création de la SARL</h4>
-                                <p>Transformation en SARL pour mieux servir nos clients et assurer une croissance pérenne.</p>
+                        <div class="carousel-slide" onclick="navigate('contact')">
+                            <div class="carousel-img-wrap">
+                                <i class="fa-solid fa-candy-cane carousel-flavor-icon"></i>
+                                <img src="https://raw.githubusercontent.com/zznkch/D-lice/main/trompe/chocolat.png" alt="Trompe-l'œil Chocolat" loading="lazy">
+                            </div>
+                            <div class="carousel-info">
+                                <div class="carousel-name">Trompe-l'œil Chocolat</div>
+                                <div class="carousel-flavor">Trompe-l'œil artistique</div>
+                                <button class="btn-request" onclick="event.stopPropagation(); navigate('contact')">
+                                    <i class="fa-solid fa-paper-plane"></i> Demande commande
+                                </button>
+                            </div>
+                        </div>
+                        <div class="carousel-slide" onclick="navigate('contact')">
+                            <div class="carousel-img-wrap">
+                                <i class="fa-solid fa-lemon carousel-flavor-icon"></i>
+                                <img src="https://raw.githubusercontent.com/zznkch/D-lice/main/trompe/citron.png" alt="Trompe-l'œil Citron" loading="lazy">
+                            </div>
+                            <div class="carousel-info">
+                                <div class="carousel-name">Trompe-l'œil Citron</div>
+                                <div class="carousel-flavor">Trompe-l'œil artistique</div>
+                                <button class="btn-request" onclick="event.stopPropagation(); navigate('contact')">
+                                    <i class="fa-solid fa-paper-plane"></i> Demande commande
+                                </button>
+                            </div>
+                        </div>
+                        <div class="carousel-slide" onclick="navigate('contact')">
+                            <div class="carousel-img-wrap">
+                                <i class="fa-solid fa-wine-bottle carousel-flavor-icon"></i>
+                                <img src="https://raw.githubusercontent.com/zznkch/D-lice/main/trompe/framboise.png" alt="Trompe-l'œil Framboise" loading="lazy">
+                            </div>
+                            <div class="carousel-info">
+                                <div class="carousel-name">Trompe-l'œil Framboise</div>
+                                <div class="carousel-flavor">Trompe-l'œil artistique</div>
+                                <button class="btn-request" onclick="event.stopPropagation(); navigate('contact')">
+                                    <i class="fa-solid fa-paper-plane"></i> Demande commande
+                                </button>
+                            </div>
+                        </div>
+                        <div class="carousel-slide" onclick="navigate('contact')">
+                            <div class="carousel-img-wrap">
+                                <i class="fa-solid fa-sun carousel-flavor-icon"></i>
+                                <img src="https://raw.githubusercontent.com/zznkch/D-lice/main/trompe/mangue.png" alt="Trompe-l'œil Mangue" loading="lazy">
+                            </div>
+                            <div class="carousel-info">
+                                <div class="carousel-name">Trompe-l'œil Mangue</div>
+                                <div class="carousel-flavor">Trompe-l'œil artistique</div>
+                                <button class="btn-request" onclick="event.stopPropagation(); navigate('contact')">
+                                    <i class="fa-solid fa-paper-plane"></i> Demande commande
+                                </button>
+                            </div>
+                        </div>
+                        <div class="carousel-slide" onclick="navigate('contact')">
+                            <div class="carousel-img-wrap">
+                                <i class="fa-solid fa-apple-whole carousel-flavor-icon"></i>
+                                <img src="https://raw.githubusercontent.com/zznkch/D-lice/main/trompe/pomme.png" alt="Trompe-l'œil Pomme" loading="lazy">
+                            </div>
+                            <div class="carousel-info">
+                                <div class="carousel-name">Trompe-l'œil Pomme</div>
+                                <div class="carousel-flavor">Trompe-l'œil artistique</div>
+                                <button class="btn-request" onclick="event.stopPropagation(); navigate('contact')">
+                                    <i class="fa-solid fa-paper-plane"></i> Demande commande
+                                </button>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="history-mission">
-                        <p>« Notre mission : transformer vos espaces de vie en lieux de confort et d'harmonie, grâce à l'expertise et au savoir-faire traditionnel de la plâtrerie. »</p>
+                </div>
+                <button class="carousel-btn carousel-next" onclick="moveCarousel(1)" aria-label="Suivant"><i class="fa-solid fa-chevron-right"></i></button>
+                <div class="carousel-dots" id="carouselDots"></div>
+            </div>
+        </section>
+
+        <!-- GALERIE TROMPE-L'ŒIL -->
+        <section class="home-section">
+            <p class="section-tag">✦ Découvre</p>
+            <h2 class="section-title" style="margin-bottom:3rem">Mes trompe-l'œil d'exception</h2>
+            <div class="product-grid" id="homeProductGrid"></div>
+        </section>
+
+    </div><!-- /page-home -->
+
+    <!-- ========== PAGE: SHOP ========== -->
+    <div class="page" id="page-shop">
+        <div class="shop-header">
+            <p class="section-tag">✦ Ma boutique</p>
+            <h1 class="shop-title">Trompe-l'œil Artistiques</h1>
+            <p style="color:var(--gray-soft);font-size:clamp(0.82rem,1vw,0.95rem);max-width:550px;margin:0 auto">
+                Des pâtisseries d'exception, entièrement faites main. Contacte-moi pour passer commande.
+            </p>
+            <span class="highlight-note" style="margin-top:1rem;display:inline-flex">
+                <i class="fa-solid fa-clock"></i> Réponse sous 48h — demande acceptée ou refusée
+            </span>
+        </div>
+
+        <!-- PRODUCTS -->
+        <div class="shop-grid" id="shopGrid"></div>
+    </div>
+
+    <!-- ========== PAGE: ABOUT ========== -->
+    <div class="page" id="page-about">
+        <div class="about-hero">
+            <p class="section-tag">✦ Mon histoire</p>
+            <h1 style="font-size:clamp(1.8rem,5vw,3.5rem);max-width:600px;margin:0 auto 1rem">
+                L'histoire de Naoual
+            </h1>
+            <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1rem,1.8vw,1.3rem);color:var(--gray-soft)">
+                Quand la passion devient art
+            </p>
+        </div>
+
+        <div class="about-content">
+            <div class="about-split">
+                </div>
+                <div class="about-text-block">
+                    <div class="about-quote">"La pâtisserie est ma façon d'offrir un peu de bonheur au monde."</div>
+                    <p class="about-para">Tout a commencé dans une petite cuisine, avec de la farine, du beurre, et une passion dévorante pour les saveurs. J'ai toujours cru que la pâtisserie était bien plus qu'une simple recette — c'est une émotion, un souvenir, un moment de pur bonheur.</p>
+                    <p class="about-para">Après des années de perfectionnement de mon art, j'ai décidé de partager mes créations avec le monde entier, en créant <strong>Délice by Naoual</strong> une boutique 100% artisanale où chaque commande est une œuvre unique, façonnée avec amour.</p>
+                </div>
+            </div>
+
+            <div class="about-split reverse">
+                </div>
+                <div class="about-text-block">
+                    <div class="about-quote">"Chaque création est une promesse de délice et d'émerveillement."</div>
+                    <p class="about-para">Spécialisée dans les trompe-l'œil artistiques, je repousse les limites de la pâtisserie traditionnelle. Mes créations sont de véritables illusions comestibles un fruit qui se révèle être un gâteau.</p>
+                    <p class="about-para">Chaque commande est préparée sur-mesure, avec les meilleurs ingrédients et une attention portée aux moindres détails. Parce que chez Délice by Naoual, tu ne commandes pas juste un gâteau tu commandes une expérience.</p>
+                </div>
+            </div>
+
+            <!-- VALUES -->
+            <div style="text-align:center;margin-bottom:3rem">
+                <p class="section-tag">✦ Mes valeurs</p>
+                <h2 style="font-size:clamp(1.5rem,3vw,2rem)">Ce qui me définit</h2>
+            </div>
+            <div class="values-row reveal">
+                <div class="value-card">
+                    <div class="value-icon"><i class="fa-solid fa-hand-sparkles"></i></div>
+                    <div class="value-title">Artisanat authentique</div>
+                    <div class="value-desc">Chaque pièce est créée entièrement à la main, sans jamais sacrifier la qualité pour la quantité.</div>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                    <div class="value-title">Excellence absolue</div>
+                    <div class="value-desc">Ingrédients premium, techniques maîtrisées, finitions parfaites rien n'est laissé au hasard.</div>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon"><i class="fa-solid fa-heart"></i></div>
+                    <div class="value-title">Personnalisation totale</div>
+                    <div class="value-desc">Tes rêves deviennent réalité chaque création peut être adaptée à tes envies et ton occasion.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== PAGE: CONTACT ========== -->
+    <div class="page" id="page-contact">
+        <div class="contact-page">
+            <div style="margin-bottom:clamp(2.5rem,4vw,4rem);text-align:center">
+                <p class="section-tag">✦ Contacte-moi</p>
+                <h1 class="contact-title">Je suis là pour toi</h1>
+                <p style="color:var(--gray-soft);font-size:clamp(0.82rem,1vw,0.95rem);max-width:450px;margin:0 auto">
+                    Une question, une commande sur-mesure ? N'hésite pas à m'écrire !
+                </p>
+                <span class="highlight-note" style="margin-top:0.8rem;display:inline-flex">
+                    <i class="fa-solid fa-clock"></i> Réponse sous 48h — demande acceptée ou refusée
+                </span>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info-block">
+                    <div>
+                        <h3 style="font-family:'Playfair Display',serif;font-size:clamp(1.1rem,1.5vw,1.3rem);margin-bottom:1.5rem">Mes coordonnées</h3>
+                        <div style="display:flex;flex-direction:column;gap:1rem">
+                            <a href="tel:+33622587560" class="contact-link">
+                                <div class="contact-link-icon"><i class="ph ph-phone"></i></div>
+                                <div>
+                                    <div style="font-weight:500;font-size:clamp(0.72rem,0.9vw,0.88rem);color:var(--gray-soft);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:2px">Téléphone</div>
+                                    <div>+33 6 22 58 75 60</div>
+                                </div>
+                            </a>
+                            <a href="mailto:delicebynaoual@gmail.com" class="contact-link">
+                                <div class="contact-link-icon"><i class="ph ph-envelope"></i></div>
+                                <div>
+                                    <div style="font-weight:500;font-size:clamp(0.72rem,0.9vw,0.88rem);color:var(--gray-soft);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:2px">Email</div>
+                                    <div>delicebynaoual@gmail.com</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 style="font-family:'Playfair Display',serif;font-size:clamp(1rem,1.2vw,1.1rem);margin-bottom:1rem">Retrouve-moi</h3>
+                        <div class="social-row">
+                            <a href="https://www.instagram.com/les_patisseries_de_naoual" target="_blank" rel="noopener noreferrer" class="social-btn" title="Instagram" aria-label="Instagram">
+                                <i class="ph ph-instagram-logo"></i>
+                            </a>
+                            <a href="https://www.snapchat.com/@delice_bynaoual" target="_blank" rel="noopener noreferrer" class="social-btn" title="Snapchat" aria-label="Snapchat">
+                                <i class="ph ph-snapchat-logo"></i>
+                            </a>
+                            <a href="mailto:delicebynaoual@gmail.com" class="social-btn" title="Email" aria-label="Email">
+                                <i class="ph ph-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div style="background:var(--rose-pale);border-radius:20px;padding:clamp(1rem,1.5vw,1.5rem);border-left:3px solid var(--rose)">
+                        <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(0.85rem,1vw,1rem);color:var(--choco);line-height:1.6">
+                            "Pour toute commande personnalisée, contacte-moi au moins 48h à l'avance afin de t'offrir la création de tes rêves. Chaque demande est étudiée avec attention et peut être acceptée ou refusée selon mes disponibilités."
+                        </p>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 style="font-family:'Playfair Display',serif;font-size:clamp(1.1rem,1.5vw,1.3rem);margin-bottom:1.5rem">Demande de commande</h3>
+                    <div class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label class="form-label">Nom complet</label>
+                            <input type="text" class="form-input" placeholder="Ton nom" id="contactName">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-input" placeholder="ton@email.com" id="contactEmail">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Ta demande</label>
+                            <textarea class="form-textarea" placeholder="Décris ton projet, la création souhaitée, la date..." id="contactMsg"></textarea>
+                        </div>
+                        <button class="form-submit" onclick="sendContactForm()">
+                            <i class="ph ph-paper-plane-tilt"></i>
+                            Envoyer la demande
+                        </button>
+                    </div>
+                    <div id="contactSuccess" style="display:none;text-align:center;padding:3rem 2rem">
+                        <div style="font-size:3rem;margin-bottom:1rem"><i class="fa-solid fa-envelope-circle-check" style="color:var(--rose)"></i></div>
+                        <h3 style="font-family:'Playfair Display',serif;font-size:1.5rem;margin-bottom:0.8rem">Demande envoyée !</h3>
+                        <p style="color:var(--gray-soft)">Je te répondrai <strong>sous 48h</strong> pour te confirmer si ta demande est acceptée. Merci de ta confiance !</p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    
-    <!-- Valeurs Section -->
-    <section class="values-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Nos Valeurs</h2>
-                <p class="section-subtitle">Ce qui guide notre travail au quotidien</p>
+    </div>
+
+    <!-- ========== FOOTER ========== -->
+    <footer>
+        <div class="footer-brand">
+            <div class="footer-logo">
+                <img src="https://raw.githubusercontent.com/DeliceByNaoual/Delice-by-Naoual/main/image/gateau.png"
+                alt="Logo Délice by Naoual" class="footer-logo-img">
+                Délice <span class="by">by</span> Naoual
             </div>
-            
-            <div class="values-grid">
-                <div class="value-card fade-in">
-                    <i class="fas fa-medal"></i>
-                    <h3>Excellence</h3>
-                    <p>Un travail soigné et des finitions parfaites pour chaque projet, qu'il soit petit ou grand.</p>
-                </div>
-                
-                <div class="value-card fade-in">
-                    <i class="fas fa-handshake"></i>
-                    <h3>Confiance</h3>
-                    <p>Transparence, respect des délais et du budget, et communication constante avec nos clients.</p>
-                </div>
-                
-                <div class="value-card fade-in">
-                    <i class="fas fa-leaf"></i>
-                    <h3>Développement Durable</h3>
-                    <p>Utilisation de matériaux écologiques et promotion de solutions d'isolation performantes.</p>
-                </div>
-                
-                <div class="value-card fade-in">
-                    <i class="fas fa-users"></i>
-                    <h3>Proximité</h3>
-                    <p>Artisan local à votre écoute, disponible et réactif pour répondre à vos besoins.</p>
-                </div>
+            <p class="footer-desc">Pâtisserie artisanale haut de gamme, 100% sur commande. Chaque création est une œuvre d'art comestible, façonnée avec amour et passion.</p>
+            <p class="footer-market">
+                <i class="fa-solid fa-store"></i> Retrouve-moi tous les <strong>samedis</strong> au marché de <strong>Behren-lès-Forbach</strong> les trompe-l'œil sont vendus sur place, ou sur commande.
+            </p>
+            <div class="footer-social">
+                <a href="https://www.instagram.com/les_patisseries_de_naoual" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
+                <a href="https://www.snapchat.com/@delice_bynaoual" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Snapchat"><i class="ph ph-snapchat-logo"></i></a>
+                <a href="mailto:delicebynaoual@gmail.com" class="footer-social-btn" aria-label="Email"><i class="ph ph-envelope"></i></a>
             </div>
         </div>
-    </section>
+        <div class="footer-bottom">
+            <div class="footer-copy">© 2025 Délice by Naoual</div>
+            <span style="color:rgba(255,255,255,0.3)">•</span>
+            <div class="footer-made">Fait avec <span><i class="fa-solid fa-heart" style="color:#ff2255"></i></span> et passion artisanale</div>
+        </div>
+    </footer>
 
-    <!-- Back to Top Button -->
-    <button class="back-to-top" aria-label="Retour en haut">
-        <i class="fas fa-chevron-up"></i>
-    </button>
+    <!-- TOAST -->
+    <div class="toast" id="toast"></div>
 
-    <script src="script.js"></script>
+    <script>
+        (function() {
+            /* ========== DONNÉES PRODUITS ========== */
+            const PRODUCTS = [
+                { id: 'trompe-cacahuete', name: 'Trompe-l\'œil Cacahuète', category: 'trompe', catLabel: 'Trompe-l\'œil',
+                    img: 'https://raw.githubusercontent.com/zznkch/D-lice/main/trompe/cacahouete.png',
+                    desc: 'Une cacahuète tellement réaliste qu\'on n\'ose pas la croquer',
+                    bgIcon: 'fa-solid fa-seedling' },
+                { id: 'trompe-cafe', name: 'Trompe-l\'œil Café', category: 'trompe', catLabel: 'Trompe-l\'œil',
+                    img: 'https://raw.githubusercontent.com/zznkch/D-lice/main/trompe/caf%C3%A9.png',
+                    desc: 'Explosion d\'arômes caféinés dans une œuvre d\'art comestible trompeuse',
+                    bgIcon: 'fa-solid fa-coffee' },
+                { id: 'trompe-chocolat', name: 'Trompe-l\'œil Chocolat', category: 'trompe', catLabel: 'Trompe-l\'œil',
+                    img: 'https://raw.githubusercontent.com/zznkch/D-lice/main/trompe/chocolat.png',
+                    desc: 'Ma signature absolue un chef-d\'œuvre artistique et gourmand inoubliable',
+                    bgIcon: 'fa-solid fa-candy-cane' },
+                { id: 'trompe-citron', name: 'Trompe-l\'œil Citron', category: 'trompe', catLabel: 'Trompe-l\'œil',
+                    img: 'https://raw.githubusercontent.com/zznkch/D-lice/main/trompe/citron.png',
+                    desc: 'Un citron qui cache son acidité',
+                    bgIcon: 'fa-solid fa-lemon' },
+                { id: 'trompe-framboise', name: 'Trompe-l\'œil Framboise', category: 'trompe', catLabel: 'Trompe-l\'œil',
+                    img: 'https://raw.githubusercontent.com/zznkch/D-lice/main/trompe/framboise.png',
+                    desc: 'Une framboise géante hypnotique',
+                    bgIcon: 'fa-solid fa-wine-bottle' },
+                { id: 'trompe-mangue', name: 'Trompe-l\'œil Mangue', category: 'trompe', catLabel: 'Trompe-l\'œil',
+                    img: 'https://raw.githubusercontent.com/zznkch/D-lice/main/trompe/mangue.png',
+                    desc: 'Une mangue trop parfaite pour être vraie',
+                    bgIcon: 'fa-solid fa-sun' },
+                { id: 'trompe-pomme', name: 'Trompe-l\'œil Pomme', category: 'trompe', catLabel: 'Trompe-l\'œil',
+                    img: 'https://raw.githubusercontent.com/zznkch/D-lice/main/trompe/pomme.png',
+                    desc: 'La pomme qui trompe tout le monde',
+                    bgIcon: 'fa-solid fa-apple-whole' },
+            ];
+
+            /* ========== ÉTAT GLOBAL ========== */
+            let currentPage = 'home';
+            let carouselPos = 0;
+            let carouselAuto;
+            let carouselVisible = 3;
+            let toastTimeout;
+
+            /* ========== FONCTIONS CAROUSEL ========== */
+            function getCarouselVisible() {
+                const w = window.innerWidth;
+                if (w <= 600) return 1;
+                if (w <= 900) return 1;
+                if (w <= 1024) return 2;
+                return 3;
+            }
+
+            function updateCarouselSlides() {
+                const newVisible = getCarouselVisible();
+                if (newVisible !== carouselVisible) {
+                    carouselVisible = newVisible;
+                    const slides = document.querySelectorAll('.carousel-slide');
+                    const track = document.getElementById('carouselTrack');
+                    if (!track) return;
+                    const gap = parseFloat(getComputedStyle(track).gap) || 24;
+                    slides.forEach(s => {
+                        if (carouselVisible === 1) {
+                            s.style.width = '100%';
+                        } else if (carouselVisible === 2) {
+                            s.style.width = `calc((100% - ${gap}px) / 2)`;
+                        } else {
+                            s.style.width = `calc((100% - 2 * ${gap}px) / 3)`;
+                        }
+                    });
+                    carouselPos = 0;
+                    initCarouselDots();
+                    setCarousel(0);
+                }
+            }
+
+            function initCarouselDots() {
+                const dots = document.getElementById('carouselDots');
+                if (!dots) return;
+                const slides = document.querySelectorAll('.carousel-slide');
+                const max = Math.max(0, slides.length - carouselVisible);
+                dots.innerHTML = '';
+                for (let i = 0; i <= max; i++) {
+                    const d = document.createElement('div');
+                    d.className = 'carousel-dot' + (i === carouselPos ? ' active' : '');
+                    d.addEventListener('click', () => setCarousel(i));
+                    dots.appendChild(d);
+                }
+            }
+
+            function setCarousel(pos) {
+                const slides = document.querySelectorAll('.carousel-slide');
+                const max = Math.max(0, slides.length - carouselVisible);
+                carouselPos = Math.max(0, Math.min(pos, max));
+                const slideW = slides[0]?.offsetWidth || 0;
+                const track = document.getElementById('carouselTrack');
+                if (!track) return;
+                const gap = parseFloat(getComputedStyle(track).gap) || 24;
+                track.style.transform = `translateX(-${carouselPos * (slideW + gap)}px)`;
+                document.querySelectorAll('.carousel-dot').forEach((d, i) => d.classList.toggle('active', i === carouselPos));
+            }
+
+            function moveCarousel(dir) {
+                const slides = document.querySelectorAll('.carousel-slide');
+                const max = Math.max(0, slides.length - carouselVisible);
+                let next = carouselPos + dir;
+                if (next < 0) next = max;
+                if (next > max) next = 0;
+                setCarousel(next);
+                resetCarouselAuto();
+            }
+
+            function startCarouselAuto() {
+                stopCarouselAuto();
+                carouselAuto = setInterval(() => moveCarousel(1), 3500);
+            }
+
+            function stopCarouselAuto() {
+                if (carouselAuto) clearInterval(carouselAuto);
+            }
+
+            function resetCarouselAuto() {
+                stopCarouselAuto();
+                startCarouselAuto();
+            }
+
+            function initCarousel() {
+                carouselVisible = getCarouselVisible();
+                const slides = document.querySelectorAll('.carousel-slide');
+                const track = document.getElementById('carouselTrack');
+                if (!track || !slides.length) return;
+                const gap = parseFloat(getComputedStyle(track).gap) || 24;
+                slides.forEach(s => {
+                    if (carouselVisible === 1) {
+                        s.style.width = '100%';
+                    } else if (carouselVisible === 2) {
+                        s.style.width = `calc((100% - ${gap}px) / 2)`;
+                    } else {
+                        s.style.width = `calc((100% - 2 * ${gap}px) / 3)`;
+                    }
+                });
+                initCarouselDots();
+                setCarousel(0);
+                startCarouselAuto();
+
+                // Touch swipe sur le track
+                let startX = 0,
+                    isDragging = false;
+                track.addEventListener('touchstart', e => {
+                    startX = e.touches[0].clientX;
+                    isDragging = true;
+                }, { passive: true });
+                track.addEventListener('touchend', e => {
+                    if (!isDragging) return;
+                    isDragging = false;
+                    const diff = startX - e.changedTouches[0].clientX;
+                    if (Math.abs(diff) > 30) moveCarousel(diff > 0 ? 1 : -1);
+                });
+            }
+
+            /* ========== NAVIGATION ========== */
+            function navigate(page) {
+                document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+                const target = document.getElementById('page-' + page);
+                if (target) target.classList.add('active');
+                document.querySelectorAll('nav a').forEach(a => {
+                    a.classList.remove('active');
+                    if (a.dataset.page === page) a.classList.add('active');
+                });
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                currentPage = page;
+                if (page === 'shop') renderShop();
+                if (page === 'home') {
+                    renderHomeGrid();
+                    updateCarouselSlides();
+                    initCarouselDots();
+                    setCarousel(0);
+                    resetCarouselAuto();
+                }
+                setTimeout(initReveal, 150);
+                return false;
+            }
+
+            /* ========== MOBILE MENU ========== */
+            function toggleMenu() {
+                const menu = document.getElementById('mobileMenu');
+                const hamburger = document.getElementById('hamburger');
+                const isOpen = menu.classList.contains('open');
+                menu.classList.toggle('open', !isOpen);
+                hamburger.classList.toggle('open', !isOpen);
+                document.body.style.overflow = isOpen ? '' : 'hidden';
+            }
+
+            /* ========== RENDU PRODUITS ========== */
+            function renderProductCard(p) {
+                return `
+                <div class="product-card reveal">
+                  <div class="product-img-wrap">
+                    <img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.style.opacity='0.3'">
+                    <i class="${p.bgIcon} product-bg-icon"></i>
+                  </div>
+                  <div class="product-info">
+                    <div class="product-category">${p.catLabel}</div>
+                    <div class="product-name">${p.name}</div>
+                    <div class="product-desc">${p.desc}</div>
+                    <div class="product-footer">
+                      <button class="btn-request" onclick="navigate('contact')">
+                        <i class="fa-solid fa-paper-plane"></i> Demande commande
+                      </button>
+                    </div>
+                  </div>
+                </div>`;
+            }
+
+            function renderHomeGrid() {
+                const grid = document.getElementById('homeProductGrid');
+                if (!grid) return;
+                grid.innerHTML = PRODUCTS.map(p => renderProductCard(p)).join('');
+                setTimeout(initReveal, 100);
+            }
+
+            function renderShop() {
+                const grid = document.getElementById('shopGrid');
+                if (!grid) return;
+                grid.innerHTML = PRODUCTS.map(p => renderProductCard(p)).join('');
+                setTimeout(initReveal, 100);
+            }
+
+            /* ========== FORMULAIRE CONTACT ========== */
+            function sendContactForm() {
+                const name = document.getElementById('contactName')?.value.trim();
+                const email = document.getElementById('contactEmail')?.value.trim();
+                const msg = document.getElementById('contactMsg')?.value.trim();
+                if (!name || !email || !msg) {
+                    showToast('<i class="fa-solid fa-triangle-exclamation"></i> Merci de remplir tous les champs !');
+                    return;
+                }
+                document.getElementById('contactForm').style.display = 'none';
+                document.getElementById('contactSuccess').style.display = 'block';
+                showToast('<i class="fa-solid fa-envelope"></i> Demande envoyée ! Réponse sous 48h.');
+            }
+
+            /* ========== TOAST ========== */
+            function showToast(msg) {
+                const toast = document.getElementById('toast');
+                if (!toast) return;
+                if (toastTimeout) clearTimeout(toastTimeout);
+                toast.innerHTML = msg;
+                toast.classList.add('show');
+                toastTimeout = setTimeout(() => toast.classList.remove('show'), 3500);
+            }
+
+            /* ========== REVEAL ANIMATIONS ========== */
+            function initReveal() {
+                const obs = new IntersectionObserver((entries) => {
+                    entries.forEach(e => {
+                        if (e.isIntersecting) e.target.classList.add('visible');
+                    });
+                }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+                document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+            }
+
+            /* ========== ÉCOUTEURS GLOBAUX ========== */
+            window.addEventListener('scroll', () => {
+                const h = document.getElementById('mainHeader');
+                if (h) h.classList.toggle('scrolled', window.scrollY > 60);
+            }, { passive: true });
+
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 900) {
+                    const menu = document.getElementById('mobileMenu');
+                    const hamburger = document.getElementById('hamburger');
+                    if (menu && menu.classList.contains('open')) {
+                        menu.classList.remove('open');
+                        hamburger.classList.remove('open');
+                        document.body.style.overflow = '';
+                    }
+                }
+                updateCarouselSlides();
+                initCarouselDots();
+                setCarousel(carouselPos);
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    const menu = document.getElementById('mobileMenu');
+                    if (menu && menu.classList.contains('open')) toggleMenu();
+                }
+            });
+
+            // Empêche le rechargement sur les clics de navigation
+            document.querySelectorAll('nav a, .mobile-menu a').forEach(a => {
+                a.addEventListener('click', e => e.preventDefault());
+            });
+
+            // Écouteurs hover/touch sur le carousel wrapper
+            const carouselWrapper = document.querySelector('.carousel-wrapper');
+            if (carouselWrapper) {
+                carouselWrapper.addEventListener('mouseenter', stopCarouselAuto);
+                carouselWrapper.addEventListener('mouseleave', startCarouselAuto);
+                carouselWrapper.addEventListener('touchstart', stopCarouselAuto, { passive: true });
+                carouselWrapper.addEventListener('touchend', () => setTimeout(startCarouselAuto, 2000));
+            }
+
+            /* ========== INITIALISATION ========== */
+            initCarousel();
+            initReveal();
+            renderHomeGrid();
+            renderShop();
+            updateCarouselSlides();
+            initCarouselDots();
+            setCarousel(0);
+
+            // Exposition des fonctions nécessaires dans le scope global
+            window.navigate = navigate;
+            window.toggleMenu = toggleMenu;
+            window.moveCarousel = moveCarousel;
+            window.sendContactForm = sendContactForm;
+        })();
+    </script>
 </body>
 </html>
