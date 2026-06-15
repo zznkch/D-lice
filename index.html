@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
     <style>
+        /* --- le même CSS que précédemment, inchangé --- */
         :root {
             --cream: #FDF8F3;
             --cream-dark: #F5EDE0;
@@ -33,7 +34,6 @@
             --gray-soft: #8A7B6F;
             --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
         *,
         *::before,
         *::after {
@@ -41,14 +41,12 @@
             margin: 0;
             padding: 0;
         }
-
         html {
             scroll-behavior: smooth;
             font-size: 16px;
             -webkit-text-size-adjust: 100%;
             -webkit-tap-highlight-color: transparent;
         }
-
         body {
             font-family: 'Jost', sans-serif;
             background: var(--cream);
@@ -58,31 +56,23 @@
             min-height: 100vh;
             min-height: 100dvh;
         }
-
-        h1,
-        h2,
-        h3,
-        h4 {
+        h1, h2, h3, h4 {
             font-family: 'Playfair Display', serif;
             line-height: 1.2;
         }
-
         p {
             font-family: 'Jost', sans-serif;
             font-weight: 300;
         }
-
         img {
             max-width: 100%;
             display: block;
             height: auto;
         }
-
         a {
             text-decoration: none;
             color: inherit;
         }
-
         button {
             cursor: pointer;
             border: none;
@@ -91,8 +81,6 @@
             -webkit-tap-highlight-color: transparent;
             touch-action: manipulation;
         }
-
-        /* ======= SCROLLBAR ======= */
         ::-webkit-scrollbar {
             width: 6px;
         }
@@ -103,8 +91,6 @@
             background: var(--gold);
             border-radius: 3px;
         }
-
-        /* ======= PAGE SYSTEM ======= */
         .page {
             display: none;
             min-height: 100vh;
@@ -114,8 +100,6 @@
         .page.active {
             display: block;
         }
-
-        /* ======= HEADER ======= */
         header {
             position: fixed;
             top: 0;
@@ -136,7 +120,6 @@
             -webkit-backdrop-filter: blur(20px);
             box-shadow: 0 1px 30px rgba(0, 0, 0, 0.07);
         }
-
         .logo {
             display: flex;
             align-items: center;
@@ -162,7 +145,6 @@
             font-style: italic;
             font-weight: 400;
         }
-
         nav {
             display: flex;
             gap: clamp(1rem, 2.5vw, 2.5rem);
@@ -199,7 +181,6 @@
         nav a.active {
             color: var(--rose);
         }
-
         .hamburger {
             display: none;
             flex-direction: column;
@@ -227,7 +208,6 @@
         .hamburger.open span:nth-child(3) {
             transform: rotate(-45deg) translate(5px, -5px);
         }
-
         .mobile-menu {
             display: flex;
             position: fixed;
@@ -264,20 +244,12 @@
             opacity: 1;
             transform: translateY(0);
         }
-        .mobile-menu.open a:nth-child(2) {
-            transition-delay: 0.05s;
-        }
-        .mobile-menu.open a:nth-child(3) {
-            transition-delay: 0.1s;
-        }
-        .mobile-menu.open a:nth-child(4) {
-            transition-delay: 0.15s;
-        }
+        .mobile-menu.open a:nth-child(2) { transition-delay: 0.05s; }
+        .mobile-menu.open a:nth-child(3) { transition-delay: 0.1s; }
+        .mobile-menu.open a:nth-child(4) { transition-delay: 0.15s; }
         .mobile-menu a:hover {
             color: var(--rose);
         }
-
-        /* ======= HERO ======= */
         #hero {
             height: 100vh;
             height: 100dvh;
@@ -408,8 +380,6 @@
             color: var(--rose);
             transform: translateY(-3px);
         }
-
-        /* ======= CAROUSEL ======= */
         .carousel-section {
             padding: clamp(3rem, 5vw, 5rem) 0;
             overflow: hidden;
@@ -480,10 +450,15 @@
             position: absolute;
             top: clamp(0.5rem, 1vw, 1rem);
             left: clamp(0.5rem, 1vw, 1rem);
-            font-size: clamp(1.5rem, 2.5vw, 2rem);
-            opacity: 0.15;
+            width: clamp(1.8rem, 3vw, 2.4rem);
+            height: clamp(1.8rem, 3vw, 2.4rem);
+            opacity: 0.25;
             pointer-events: none;
-            color: var(--gold-dark);
+        }
+        .carousel-flavor-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
         .carousel-info {
             padding: clamp(0.8rem, 1.2vw, 1.2rem) clamp(1rem, 1.4vw, 1.4rem) clamp(1rem, 1.4vw, 1.4rem);
@@ -492,6 +467,12 @@
         .carousel-name {
             font-family: 'Playfair Display', serif;
             font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+            margin-bottom: 0.3rem;
+        }
+        .carousel-price {
+            font-weight: 600;
+            color: var(--rose);
+            font-size: clamp(0.9rem, 1.1vw, 1rem);
             margin-bottom: 0.3rem;
         }
         .carousel-flavor {
@@ -552,8 +533,6 @@
             width: 24px;
             border-radius: 4px;
         }
-
-        /* ======= BUTTONS ======= */
         .btn-request {
             display: inline-flex;
             align-items: center;
@@ -575,13 +554,30 @@
             background: var(--noir);
             transform: scale(1.05);
         }
-
-        /* ======= SECTIONS HOMEPAGE ======= */
         .home-section {
             padding: clamp(3rem, 6vw, 6rem) clamp(1rem, 3vw, 3rem);
         }
         .home-section.alt {
             background: var(--cream-dark);
+        }
+        .category-block {
+            margin-bottom: clamp(3rem, 5vw, 5rem);
+        }
+        .category-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.4rem, 2.5vw, 2rem);
+            color: var(--noir);
+            text-align: center;
+            margin-bottom: clamp(1.5rem, 2vw, 2rem);
+            position: relative;
+        }
+        .category-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 2px;
+            background: var(--rose);
+            margin: 0.8rem auto 0;
         }
         .product-grid {
             display: grid;
@@ -624,12 +620,17 @@
         }
         .product-bg-icon {
             position: absolute;
-            font-size: clamp(3rem, 5vw, 5rem);
+            width: clamp(3rem, 5vw, 5rem);
+            height: clamp(3rem, 5vw, 5rem);
             opacity: 0.07;
             bottom: 0.5rem;
             right: 0.5rem;
             pointer-events: none;
-            color: var(--gold-dark);
+        }
+        .product-bg-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
         .product-info {
             padding: clamp(1rem, 1.4vw, 1.2rem) clamp(1rem, 1.4vw, 1.4rem) clamp(1.2rem, 1.5vw, 1.5rem);
@@ -649,7 +650,13 @@
         .product-name {
             font-family: 'Playfair Display', serif;
             font-size: clamp(1rem, 1.2vw, 1.15rem);
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.2rem;
+        }
+        .product-price {
+            font-weight: 600;
+            color: var(--rose);
+            font-size: clamp(0.9rem, 1.1vw, 1rem);
+            margin-bottom: 0.5rem;
         }
         .product-desc {
             font-size: clamp(0.75rem, 0.85vw, 0.82rem);
@@ -665,8 +672,6 @@
             gap: 0.8rem;
             flex-wrap: wrap;
         }
-
-        /* ======= FEATURES ======= */
         .features-row {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
@@ -701,8 +706,6 @@
             font-size: clamp(0.75rem, 0.85vw, 0.82rem);
             color: var(--gray-soft);
         }
-
-        /* ======= BOUTIQUE PAGE ======= */
         .shop-header {
             padding: clamp(6rem, 8vw, 8rem) clamp(1rem, 3vw, 3rem) clamp(2rem, 3vw, 3rem);
             text-align: center;
@@ -713,15 +716,10 @@
             margin-bottom: 1rem;
         }
         .shop-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
-            gap: clamp(1.5rem, 2vw, 2rem);
-            padding: 0 clamp(1rem, 3vw, 3rem) clamp(4rem, 6vw, 6rem);
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 clamp(1rem, 3vw, 3rem) clamp(4rem, 6vw, 6rem);
         }
-
-        /* ======= ABOUT PAGE ======= */
         .about-hero {
             padding: clamp(6rem, 8vw, 8rem) clamp(1rem, 3vw, 3rem) clamp(3rem, 4vw, 4rem);
             text-align: center;
@@ -757,8 +755,6 @@
         .about-para:last-child {
             margin-bottom: 0;
         }
-
-        /* ======= CONTACT PAGE ======= */
         .contact-page {
             padding: clamp(6rem, 8vw, 8rem) clamp(1rem, 3vw, 3rem) clamp(4rem, 6vw, 6rem);
             max-width: 1000px;
@@ -894,8 +890,6 @@
         .form-submit:active {
             transform: scale(0.96);
         }
-
-        /* ======= TOAST ======= */
         .toast {
             position: fixed;
             bottom: clamp(1.5rem, 2vh, 2rem);
@@ -921,8 +915,6 @@
         .toast.show {
             transform: translateX(-50%) translateY(0);
         }
-
-        /* ======= FOOTER ======= */
         footer {
             background: var(--choco);
             color: var(--cream);
@@ -1017,25 +1009,13 @@
         .footer-made span {
             color: var(--rose);
         }
-
-        /* ======= ANIMATIONS ======= */
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
         .reveal {
             opacity: 0;
@@ -1046,8 +1026,6 @@
             opacity: 1;
             transform: translateY(0);
         }
-
-        /* ======= HIGHLIGHT NOTE ======= */
         .highlight-note {
             display: inline-flex;
             align-items: center;
@@ -1061,8 +1039,6 @@
             letter-spacing: 0.05em;
             margin-top: 0.6rem;
         }
-
-        /* ======= RESPONSIVE BREAKPOINTS ======= */
         @media (max-width: 1024px) {
             .carousel-slide {
                 width: calc((100% - 1 * clamp(0.8rem, 1.5vw, 1.5rem)) / 2);
@@ -1072,7 +1048,6 @@
                 gap: 3rem;
             }
         }
-
         @media (max-width: 900px) {
             header {
                 padding: 0.8rem 1.2rem;
@@ -1105,211 +1080,76 @@
             .product-grid {
                 grid-template-columns: repeat(auto-fill, minmax(min(220px, 100%), 1fr));
             }
-            .shop-grid {
+            .shop-grid .product-grid {
                 grid-template-columns: repeat(auto-fill, minmax(min(240px, 100%), 1fr));
             }
         }
-
         @media (max-width: 600px) {
-            html {
-                font-size: 15px;
-            }
-            header {
-                padding: 0.6rem 1rem;
-            }
-            .logo {
-                font-size: 1.1rem;
-            }
-            .logo-img {
-                width: 30px;
-                height: 30px;
-            }
-            .hero-title {
-                font-size: 1.8rem;
-            }
-            .hero-slogan {
-                font-size: 0.9rem;
-            }
-            .hero-badge {
-                font-size: 0.6rem;
-                padding: 0.35rem 0.8rem;
-            }
-            .hero-ctas {
-                flex-direction: column;
-                align-items: center;
-                gap: 0.8rem;
-            }
+            html { font-size: 15px; }
+            header { padding: 0.6rem 1rem; }
+            .logo { font-size: 1.1rem; }
+            .logo-img { width: 30px; height: 30px; }
+            .hero-title { font-size: 1.8rem; }
+            .hero-slogan { font-size: 0.9rem; }
+            .hero-badge { font-size: 0.6rem; padding: 0.35rem 0.8rem; }
+            .hero-ctas { flex-direction: column; align-items: center; gap: 0.8rem; }
             .btn-primary,
-            .btn-outline {
-                width: 100%;
-                justify-content: center;
-                text-align: center;
-                padding: 0.8rem 1.5rem;
-                font-size: 0.8rem;
-            }
-            .carousel-wrapper {
-                padding: 0 2rem;
-            }
-            .carousel-slide {
-                width: 100%;
-                border-radius: 16px;
-            }
-            .carousel-btn {
-                width: 32px;
-                height: 32px;
-                font-size: 0.7rem;
-            }
-            .carousel-prev {
-                left: 0.2rem;
-            }
-            .carousel-next {
-                right: 0.2rem;
-            }
-            .carousel-info {
-                padding: 0.8rem 1rem 1rem;
-            }
-            .carousel-name {
-                font-size: 0.9rem;
-            }
-            .features-row {
-                grid-template-columns: 1fr 1fr;
-                padding: 2rem 1rem;
-                gap: 1.5rem;
-            }
-            .feature-icon {
-                width: 44px;
-                height: 44px;
-                font-size: 1.1rem;
-            }
-            .feature-title {
-                font-size: 0.85rem;
-            }
-            .feature-desc {
-                font-size: 0.72rem;
-            }
+            .btn-outline { width: 100%; justify-content: center; text-align: center; padding: 0.8rem 1.5rem; font-size: 0.8rem; }
+            .carousel-wrapper { padding: 0 2rem; }
+            .carousel-slide { width: 100%; border-radius: 16px; }
+            .carousel-btn { width: 32px; height: 32px; font-size: 0.7rem; }
+            .carousel-prev { left: 0.2rem; }
+            .carousel-next { right: 0.2rem; }
+            .carousel-info { padding: 0.8rem 1rem 1rem; }
+            .carousel-name { font-size: 0.9rem; }
+            .features-row { grid-template-columns: 1fr 1fr; padding: 2rem 1rem; gap: 1.5rem; }
+            .feature-icon { width: 44px; height: 44px; font-size: 1.1rem; }
+            .feature-title { font-size: 0.85rem; }
+            .feature-desc { font-size: 0.72rem; }
             .product-grid,
-            .shop-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 0.8rem;
-            }
-            .product-card {
-                border-radius: 14px;
-            }
-            .product-img-wrap {
-                aspect-ratio: 1/1;
-            }
-            .product-info {
-                padding: 0.8rem;
-            }
-            .product-name {
-                font-size: 0.85rem;
-            }
-            .product-desc {
-                font-size: 0.7rem;
-                margin-bottom: 0.8rem;
-            }
-            .btn-request {
-                font-size: 0.68rem;
-                padding: 0.4rem 0.8rem;
-                gap: 0.3rem;
-            }
-            .contact-page {
-                padding: 6rem 1rem 3rem;
-            }
-            .about-content {
-                padding: 2rem 1rem;
-            }
-            .about-quote {
-                font-size: 1.1rem;
-            }
-            .about-para {
-                font-size: 0.82rem;
-            }
-            footer {
-                padding: 2.5rem 1rem 1.5rem;
-            }
-            .form-submit {
-                width: 100%;
-                justify-content: center;
-            }
-            .contact-link {
-                font-size: 0.82rem;
-            }
-            .contact-link-icon {
-                width: 38px;
-                height: 38px;
-                font-size: 1rem;
-            }
-            .social-btn {
-                width: 38px;
-                height: 38px;
-                font-size: 1rem;
-            }
-            .footer-logo-img {
-                width: 28px;
-                height: 28px;
-            }
+            .shop-grid .product-grid { grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+            .product-card { border-radius: 14px; }
+            .product-img-wrap { aspect-ratio: 1/1; }
+            .product-info { padding: 0.8rem; }
+            .product-name { font-size: 0.85rem; }
+            .product-desc { font-size: 0.7rem; margin-bottom: 0.8rem; }
+            .btn-request { font-size: 0.68rem; padding: 0.4rem 0.8rem; gap: 0.3rem; }
+            .contact-page { padding: 6rem 1rem 3rem; }
+            .about-content { padding: 2rem 1rem; }
+            .about-quote { font-size: 1.1rem; }
+            .about-para { font-size: 0.82rem; }
+            footer { padding: 2.5rem 1rem 1.5rem; }
+            .form-submit { width: 100%; justify-content: center; }
+            .contact-link { font-size: 0.82rem; }
+            .contact-link-icon { width: 38px; height: 38px; font-size: 1rem; }
+            .social-btn { width: 38px; height: 38px; font-size: 1rem; }
+            .footer-logo-img { width: 28px; height: 28px; }
         }
-
         @media (max-width: 400px) {
-            html {
-                font-size: 14px;
-            }
+            html { font-size: 14px; }
             .product-grid,
-            .shop-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-            .features-row {
-                grid-template-columns: 1fr;
-                gap: 1.2rem;
-            }
-            .hero-title {
-                font-size: 1.5rem;
-            }
-            .hero-slogan {
-                font-size: 0.82rem;
-            }
-            .logo {
-                font-size: 1rem;
-            }
-            .logo-img {
-                width: 26px;
-                height: 26px;
-            }
-            .carousel-img-wrap {
-                aspect-ratio: 3/4;
-            }
-            .carousel-img-wrap img {
-                width: 90%;
-                height: 90%;
-            }
-            .section-title {
-                font-size: 1.3rem;
-            }
-            .section-tag {
-                font-size: 0.6rem;
-            }
+            .shop-grid .product-grid { grid-template-columns: 1fr; gap: 1rem; }
+            .features-row { grid-template-columns: 1fr; gap: 1.2rem; }
+            .hero-title { font-size: 1.5rem; }
+            .hero-slogan { font-size: 0.82rem; }
+            .logo { font-size: 1rem; }
+            .logo-img { width: 26px; height: 26px; }
+            .carousel-img-wrap { aspect-ratio: 3/4; }
+            .carousel-img-wrap img { width: 90%; height: 90%; }
+            .section-title { font-size: 1.3rem; }
+            .section-tag { font-size: 0.6rem; }
         }
-
-        /* ======= SAFE AREA SUPPORT ======= */
         @supports(padding: env(safe-area-inset-bottom)) {
-            .toast {
-                bottom: calc(1.5rem + env(safe-area-inset-bottom));
-            }
-            .mobile-menu {
-                padding-bottom: env(safe-area-inset-bottom);
-            }
+            .toast { bottom: calc(1.5rem + env(safe-area-inset-bottom)); }
+            .mobile-menu { padding-bottom: env(safe-area-inset-bottom); }
         }
     </style>
 </head>
 <body>
 
-    <!-- HEADER -->
     <header id="mainHeader">
         <div class="logo" onclick="navigate('home')">
-            <img src="https://raw.githubusercontent.com/DeliceByNaoual/Delice-by-Naoual/main/image/gateau.png"
-            alt="Logo Délice by Naoual" class="logo-img">
+            <img src="https://raw.githubusercontent.com/DeliceByNaoual/Delice-by-Naoual/main/image/gateau.png" alt="Logo Délice by Naoual" class="logo-img">
             Délice <span class="by">by</span> Naoual
         </div>
         <nav>
@@ -1323,7 +1163,6 @@
         </div>
     </header>
 
-    <!-- MOBILE MENU (sans bouton close) -->
     <div class="mobile-menu" id="mobileMenu">
         <a href="#" onclick="navigate('home'); toggleMenu()">Accueil</a>
         <a href="#" onclick="navigate('shop'); toggleMenu()">Boutique</a>
@@ -1331,210 +1170,68 @@
         <a href="#" onclick="navigate('contact'); toggleMenu()">Contact</a>
     </div>
 
-    <!-- ========== PAGE: HOME ========== -->
+    <!-- PAGE HOME -->
     <div class="page active" id="page-home">
-
-        <!-- HERO -->
         <section id="hero">
             <div class="hero-bg"></div>
             <div class="hero-orb hero-orb-1"></div>
             <div class="hero-orb hero-orb-2"></div>
             <div class="hero-content">
                 <div class="hero-badge">Pâtisserie Artisanale • Sur commande</div>
-                <h1 class="hero-title">
-                    L'art de la<br>pâtisserie <span class="highlight">sublime</span>
-                </h1>
+                <h1 class="hero-title">L'art de la<br>pâtisserie <span class="highlight">sublime</span></h1>
                 <p class="hero-slogan">"Le goût du bonheur dans chaque bouchée"</p>
                 <div class="hero-ctas">
-                    <a class="btn-primary" href="#" onclick="navigate('shop')">
-                        <i class="fa-solid fa-eye"></i>
-                        Voir les créations
-                    </a>
-                    <a class="btn-outline" href="#" onclick="navigate('contact')">
-                        <i class="fa-solid fa-paper-plane"></i>
-                        Demander une commande
-                    </a>
+                    <a class="btn-primary" href="#" onclick="navigate('shop')"><i class="fa-solid fa-eye"></i> Voir les créations</a>
+                    <a class="btn-outline" href="#" onclick="navigate('contact')"><i class="fa-solid fa-paper-plane"></i> Demander une commande</a>
                 </div>
             </div>
         </section>
 
-        <!-- FEATURES -->
         <div class="features-row">
-            <div class="feature-item reveal">
-                <div class="feature-icon"><i class="fa-solid fa-truck-fast"></i></div>
-                <div class="feature-title">Livraison à domicile</div>
-                <div class="feature-desc">Tes créations livrées avec soin</div>
-            </div>
-            <div class="feature-item reveal">
-                <div class="feature-icon"><i class="fa-solid fa-star"></i></div>
-                <div class="feature-title">Artisanat premium</div>
-                <div class="feature-desc">Fait main avec amour</div>
-            </div>
-            <div class="feature-item reveal">
-                <div class="feature-icon"><i class="fa-solid fa-palette"></i></div>
-                <div class="feature-title">100% personnalisable</div>
-                <div class="feature-desc">Sur mesure pour toi</div>
-            </div>
-            <div class="feature-item reveal">
-                <div class="feature-icon"><i class="fa-solid fa-heart"></i></div>
-                <div class="feature-title">Fait avec passion</div>
-                <div class="feature-desc">Chaque création est unique</div>
-            </div>
+            <div class="feature-item reveal"><div class="feature-icon"><i class="fa-solid fa-truck-fast"></i></div><div class="feature-title">Livraison à domicile</div><div class="feature-desc">Tes créations livrées avec soin</div></div>
+            <div class="feature-item reveal"><div class="feature-icon"><i class="fa-solid fa-star"></i></div><div class="feature-title">Artisanat premium</div><div class="feature-desc">Fait main avec amour</div></div>
+            <div class="feature-item reveal"><div class="feature-icon"><i class="fa-solid fa-palette"></i></div><div class="feature-title">100% personnalisable</div><div class="feature-desc">Sur mesure pour toi</div></div>
+            <div class="feature-item reveal"><div class="feature-icon"><i class="fa-solid fa-heart"></i></div><div class="feature-title">Fait avec passion</div><div class="feature-desc">Chaque création est unique</div></div>
         </div>
 
-        <!-- CAROUSEL: TROMPE-L'ŒIL -->
         <section class="carousel-section">
             <p class="section-tag">✦ Collection signature</p>
             <h2 class="section-title">Trompe-l'œil Artistiques</h2>
             <div class="carousel-wrapper">
                 <button class="carousel-btn carousel-prev" onclick="moveCarousel(-1)" aria-label="Précédent"><i class="fa-solid fa-chevron-left"></i></button>
-                <div class="carousel-viewport">
-                    <div class="carousel-track" id="carouselTrack">
-                        <div class="carousel-slide" onclick="navigate('contact')">
-                            <div class="carousel-img-wrap">
-                                <i class="fa-solid fa-seedling carousel-flavor-icon"></i>
-                                <img src="https://raw.githubusercontent.com/zznkch/D-lice/main/trompe/cacahouete.png" alt="Trompe-l'œil Cacahuète" loading="lazy">
-                            </div>
-                            <div class="carousel-info">
-                                <div class="carousel-name">Trompe-l'œil Cacahuète</div>
-                                <div class="carousel-flavor">Trompe-l'œil artistique</div>
-                                <button class="btn-request" onclick="event.stopPropagation(); navigate('contact')">
-                                    <i class="fa-solid fa-paper-plane"></i> Demande commande
-                                </button>
-                            </div>
-                        </div>
-                        <div class="carousel-slide" onclick="navigate('contact')">
-                            <div class="carousel-img-wrap">
-                                <i class="ph ph-coffee-bean carousel-flavor-icon"></i>
-                                <img src="https://raw.githubusercontent.com/zznkch/D-lice/main/trompe/caf%C3%A9.png" alt="Trompe-l'œil Café" loading="lazy">
-                            </div>
-                            <div class="carousel-info">
-                                <div class="carousel-name">Trompe-l'œil Café</div>
-                                <div class="carousel-flavor">Trompe-l'œil artistique</div>
-                                <button class="btn-request" onclick="event.stopPropagation(); navigate('contact')">
-                                    <i class="fa-solid fa-paper-plane"></i> Demande commande
-                                </button>
-                            </div>
-                        </div>
-                        <div class="carousel-slide" onclick="navigate('contact')">
-                            <div class="carousel-img-wrap">
-                                <i class="fa-solid fa-candy-cane carousel-flavor-icon"></i>
-                                <img src="https://raw.githubusercontent.com/zznkch/D-lice/main/trompe/chocolat.png" alt="Trompe-l'œil Chocolat" loading="lazy">
-                            </div>
-                            <div class="carousel-info">
-                                <div class="carousel-name">Trompe-l'œil Chocolat</div>
-                                <div class="carousel-flavor">Trompe-l'œil artistique</div>
-                                <button class="btn-request" onclick="event.stopPropagation(); navigate('contact')">
-                                    <i class="fa-solid fa-paper-plane"></i> Demande commande
-                                </button>
-                            </div>
-                        </div>
-                        <div class="carousel-slide" onclick="navigate('contact')">
-                            <div class="carousel-img-wrap">
-                                <i class="fa-solid fa-lemon carousel-flavor-icon"></i>
-                                <img src="https://raw.githubusercontent.com/zznkch/D-lice/main/trompe/citron.png" alt="Trompe-l'œil Citron" loading="lazy">
-                            </div>
-                            <div class="carousel-info">
-                                <div class="carousel-name">Trompe-l'œil Citron</div>
-                                <div class="carousel-flavor">Trompe-l'œil artistique</div>
-                                <button class="btn-request" onclick="event.stopPropagation(); navigate('contact')">
-                                    <i class="fa-solid fa-paper-plane"></i> Demande commande
-                                </button>
-                            </div>
-                        </div>
-                        <div class="carousel-slide" onclick="navigate('contact')">
-                            <div class="carousel-img-wrap">
-                                <i class="fa-solid fa-wine-bottle carousel-flavor-icon"></i>
-                                <img src="https://raw.githubusercontent.com/zznkch/D-lice/main/trompe/framboise.png" alt="Trompe-l'œil Framboise" loading="lazy">
-                            </div>
-                            <div class="carousel-info">
-                                <div class="carousel-name">Trompe-l'œil Framboise</div>
-                                <div class="carousel-flavor">Trompe-l'œil artistique</div>
-                                <button class="btn-request" onclick="event.stopPropagation(); navigate('contact')">
-                                    <i class="fa-solid fa-paper-plane"></i> Demande commande
-                                </button>
-                            </div>
-                        </div>
-                        <div class="carousel-slide" onclick="navigate('contact')">
-                            <div class="carousel-img-wrap">
-                                <i class="fa-solid fa-sun carousel-flavor-icon"></i>
-                                <img src="https://raw.githubusercontent.com/zznkch/D-lice/main/trompe/mangue.png" alt="Trompe-l'œil Mangue" loading="lazy">
-                            </div>
-                            <div class="carousel-info">
-                                <div class="carousel-name">Trompe-l'œil Mangue</div>
-                                <div class="carousel-flavor">Trompe-l'œil artistique</div>
-                                <button class="btn-request" onclick="event.stopPropagation(); navigate('contact')">
-                                    <i class="fa-solid fa-paper-plane"></i> Demande commande
-                                </button>
-                            </div>
-                        </div>
-                        <div class="carousel-slide" onclick="navigate('contact')">
-                            <div class="carousel-img-wrap">
-                                <i class="fa-solid fa-apple-whole carousel-flavor-icon"></i>
-                                <img src="https://raw.githubusercontent.com/zznkch/D-lice/main/trompe/pomme.png" alt="Trompe-l'œil Pomme" loading="lazy">
-                            </div>
-                            <div class="carousel-info">
-                                <div class="carousel-name">Trompe-l'œil Pomme</div>
-                                <div class="carousel-flavor">Trompe-l'œil artistique</div>
-                                <button class="btn-request" onclick="event.stopPropagation(); navigate('contact')">
-                                    <i class="fa-solid fa-paper-plane"></i> Demande commande
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div class="carousel-viewport"><div class="carousel-track" id="carouselTrack"></div></div>
                 <button class="carousel-btn carousel-next" onclick="moveCarousel(1)" aria-label="Suivant"><i class="fa-solid fa-chevron-right"></i></button>
                 <div class="carousel-dots" id="carouselDots"></div>
             </div>
         </section>
 
-        <!-- GALERIE TROMPE-L'ŒIL -->
-        <section class="home-section">
-            <p class="section-tag">✦ Découvre</p>
-            <h2 class="section-title" style="margin-bottom:3rem">Mes trompe-l'œil d'exception</h2>
-            <div class="product-grid" id="homeProductGrid"></div>
-        </section>
+        <section class="home-section" id="homeProductGridContainer"></section>
+    </div>
 
-    </div><!-- /page-home -->
-
-    <!-- ========== PAGE: SHOP ========== -->
+    <!-- PAGE SHOP -->
     <div class="page" id="page-shop">
         <div class="shop-header">
             <p class="section-tag">✦ Ma boutique</p>
-            <h1 class="shop-title">Trompe-l'œil Artistiques</h1>
-            <p style="color:var(--gray-soft);font-size:clamp(0.82rem,1vw,0.95rem);max-width:550px;margin:0 auto">
-                Des pâtisseries d'exception, entièrement faites main. Contacte-moi pour passer commande.
-            </p>
-            <span class="highlight-note" style="margin-top:1rem;display:inline-flex">
-                <i class="fa-solid fa-clock"></i> Réponse sous 48h — demande acceptée ou refusée
-            </span>
+            <h1 class="shop-title">Toutes mes créations</h1>
+            <p style="color:var(--gray-soft);font-size:clamp(0.82rem,1vw,0.95rem);max-width:550px;margin:0 auto">Des pâtisseries d'exception, entièrement faites main. Contacte-moi pour passer commande.</p>
+            <span class="highlight-note" style="margin-top:1rem;display:inline-flex"><i class="fa-solid fa-clock"></i> Commande une semaine à l'avance – réponse sous 48h</span>
         </div>
-
-        <!-- PRODUCTS -->
         <div class="shop-grid" id="shopGrid"></div>
     </div>
 
-    <!-- ========== PAGE: ABOUT ========== -->
+    <!-- PAGE ABOUT -->
     <div class="page" id="page-about">
         <div class="about-hero">
             <p class="section-tag">✦ Mon histoire</p>
-            <h1 style="font-size:clamp(1.8rem,5vw,3.5rem);max-width:600px;margin:0 auto 1rem">
-                L'histoire de Naoual
-            </h1>
-            <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1rem,1.8vw,1.3rem);color:var(--gray-soft)">
-                Quand la passion devient art
-            </p>
+            <h1 style="font-size:clamp(1.8rem,5vw,3.5rem);max-width:600px;margin:0 auto 1rem">L'histoire de Naoual</h1>
+            <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1rem,1.8vw,1.3rem);color:var(--gray-soft)">Quand la passion devient art</p>
         </div>
-
         <div class="about-content">
-            <!-- Bloc 1 : sans image, texte centré -->
             <div class="about-text-block">
                 <div class="about-quote">"La pâtisserie est ma façon d'offrir un peu de bonheur au monde."</div>
                 <p class="about-para">Tout a commencé dans une petite cuisine, avec de la farine, du beurre, et une passion dévorante pour les saveurs. J'ai toujours cru que la pâtisserie était bien plus qu'une simple recette — c'est une émotion, un souvenir, un moment de pur bonheur.</p>
                 <p class="about-para">Après des années de perfectionnement de mon art, j'ai décidé de partager mes créations avec le monde entier, en créant <strong>Délice by Naoual</strong> une boutique 100% artisanale où chaque commande est une œuvre unique, façonnée avec amour.</p>
             </div>
-
-            <!-- Bloc 2 : sans image, texte centré -->
             <div class="about-text-block">
                 <div class="about-quote">"Chaque création est une promesse de délice et d'émerveillement."</div>
                 <p class="about-para">Spécialisée dans les trompe-l'œil artistiques, je repousse les limites de la pâtisserie traditionnelle. Mes créations sont de véritables illusions comestibles un fruit qui se révèle être un gâteau.</p>
@@ -1543,106 +1240,56 @@
         </div>
     </div>
 
-    <!-- ========== PAGE: CONTACT ========== -->
+    <!-- PAGE CONTACT -->
     <div class="page" id="page-contact">
         <div class="contact-page">
             <div style="margin-bottom:clamp(2.5rem,4vw,4rem);text-align:center">
                 <p class="section-tag">✦ Contacte-moi</p>
                 <h1 class="contact-title">Je suis là pour toi</h1>
-                <p style="color:var(--gray-soft);font-size:clamp(0.82rem,1vw,0.95rem);max-width:450px;margin:0 auto">
-                    Une question, une commande sur-mesure ? N'hésite pas à m'écrire !
-                </p>
-                <span class="highlight-note" style="margin-top:0.8rem;display:inline-flex">
-                    <i class="fa-solid fa-clock"></i> Réponse sous 48h — demande acceptée ou refusée
-                </span>
+                <p style="color:var(--gray-soft);font-size:clamp(0.82rem,1vw,0.95rem);max-width:450px;margin:0 auto">Une question, une commande sur-mesure ? N'hésite pas à m'écrire !</p>
+                <span class="highlight-note" style="margin-top:0.8rem;display:inline-flex"><i class="fa-solid fa-clock"></i> Commande une semaine à l'avance – réponse sous 48h</span>
             </div>
             <div class="contact-grid">
                 <div class="contact-info-block">
                     <div>
                         <h3 style="font-family:'Playfair Display',serif;font-size:clamp(1.1rem,1.5vw,1.3rem);margin-bottom:1.5rem">Mes coordonnées</h3>
                         <div style="display:flex;flex-direction:column;gap:1rem">
-                            <a href="tel:+33622587560" class="contact-link">
-                                <div class="contact-link-icon"><i class="ph ph-phone"></i></div>
-                                <div>
-                                    <div style="font-weight:500;font-size:clamp(0.72rem,0.9vw,0.88rem);color:var(--gray-soft);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:2px">Téléphone</div>
-                                    <div>+33 6 22 58 75 60</div>
-                                </div>
-                            </a>
-                            <a href="mailto:delicebynaoual@gmail.com" class="contact-link">
-                                <div class="contact-link-icon"><i class="ph ph-envelope"></i></div>
-                                <div>
-                                    <div style="font-weight:500;font-size:clamp(0.72rem,0.9vw,0.88rem);color:var(--gray-soft);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:2px">Email</div>
-                                    <div>delicebynaoual@gmail.com</div>
-                                </div>
-                            </a>
+                            <a href="tel:+33622587560" class="contact-link"><div class="contact-link-icon"><i class="ph ph-phone"></i></div><div><div style="font-weight:500;font-size:clamp(0.72rem,0.9vw,0.88rem);color:var(--gray-soft);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:2px">Téléphone</div><div>+33 6 22 58 75 60</div></div></a>
+                            <a href="mailto:delicebynaoual@gmail.com" class="contact-link"><div class="contact-link-icon"><i class="ph ph-envelope"></i></div><div><div style="font-weight:500;font-size:clamp(0.72rem,0.9vw,0.88rem);color:var(--gray-soft);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:2px">Email</div><div>delicebynaoual@gmail.com</div></div></a>
                         </div>
                     </div>
                     <div>
                         <h3 style="font-family:'Playfair Display',serif;font-size:clamp(1rem,1.2vw,1.1rem);margin-bottom:1rem">Retrouve-moi</h3>
                         <div class="social-row">
-                            <a href="https://www.instagram.com/les_patisseries_de_naoual" target="_blank" rel="noopener noreferrer" class="social-btn" title="Instagram" aria-label="Instagram">
-                                <i class="ph ph-instagram-logo"></i>
-                            </a>
-                            <a href="https://www.snapchat.com/@delice_bynaoual" target="_blank" rel="noopener noreferrer" class="social-btn" title="Snapchat" aria-label="Snapchat">
-                                <i class="ph ph-snapchat-logo"></i>
-                            </a>
-                            <a href="mailto:delicebynaoual@gmail.com" class="social-btn" title="Email" aria-label="Email">
-                                <i class="ph ph-envelope"></i>
-                            </a>
+                            <a href="https://www.instagram.com/les_patisseries_de_naoual" target="_blank" rel="noopener noreferrer" class="social-btn" title="Instagram" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
+                            <a href="https://www.snapchat.com/@delice_bynaoual" target="_blank" rel="noopener noreferrer" class="social-btn" title="Snapchat" aria-label="Snapchat"><i class="ph ph-snapchat-logo"></i></a>
+                            <a href="mailto:delicebynaoual@gmail.com" class="social-btn" title="Email" aria-label="Email"><i class="ph ph-envelope"></i></a>
                         </div>
                     </div>
                     <div style="background:var(--rose-pale);border-radius:20px;padding:clamp(1rem,1.5vw,1.5rem);border-left:3px solid var(--rose)">
-                        <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(0.85rem,1vw,1rem);color:var(--choco);line-height:1.6">
-                            "Pour toute commande personnalisée, contacte-moi au moins 48h à l'avance afin de t'offrir la création de tes rêves. Chaque demande est étudiée avec attention et peut être acceptée ou refusée selon mes disponibilités."
-                        </p>
+                        <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(0.85rem,1vw,1rem);color:var(--choco);line-height:1.6">"Pour toute commande personnalisée, contacte-moi au moins une semaine à l'avance afin de t'offrir la création de tes rêves. Chaque demande est étudiée avec attention et peut être acceptée ou refusée selon mes disponibilités."</p>
                     </div>
                 </div>
-
                 <div>
                     <h3 style="font-family:'Playfair Display',serif;font-size:clamp(1.1rem,1.5vw,1.3rem);margin-bottom:1.5rem">Demande de commande</h3>
-                    <form id="contactForm" class="contact-form" action="https://formsubmit.co/delicebynaoual@gmail.com" method="POST">
-                        <input type="hidden" name="_subject" value="Nouvelle demande de commande - Délice by Naoual">
-                        <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_next" value="false">
-                        <div class="form-group">
-                            <label class="form-label" for="contactName">Nom complet</label>
-                            <input type="text" class="form-input" name="name" id="contactName" placeholder="Ton nom" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="contactEmail">Email</label>
-                            <input type="email" class="form-input" name="email" id="contactEmail" placeholder="ton@email.com" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="contactMsg">Ta demande</label>
-                            <textarea class="form-textarea" name="message" id="contactMsg" placeholder="Décris ton projet, la création souhaitée, la date..." required></textarea>
-                        </div>
-                        <button type="submit" class="form-submit">
-                            <i class="ph ph-paper-plane-tilt"></i>
-                            Envoyer la demande
-                        </button>
+                    <!-- Formulaire modifié : ouvre le client mail avec un mail pré-rédigé -->
+                    <form id="contactForm" class="contact-form" onsubmit="return false;">
+                        <div class="form-group"><label class="form-label" for="contactName">Nom complet</label><input type="text" class="form-input" name="name" id="contactName" placeholder="Ton nom" required></div>
+                        <div class="form-group"><label class="form-label" for="contactEmail">Email</label><input type="email" class="form-input" name="email" id="contactEmail" placeholder="ton@email.com" required></div>
+                        <div class="form-group"><label class="form-label" for="contactMsg">Ta demande</label><textarea class="form-textarea" name="message" id="contactMsg" placeholder="Décris ton projet, la création souhaitée, la date..." required></textarea></div>
+                        <button type="submit" class="form-submit" id="contactSubmitBtn"><i class="ph ph-paper-plane-tilt"></i> Envoyer la demande</button>
                     </form>
-                    <div id="contactSuccess" style="display:none;text-align:center;padding:3rem 2rem">
-                        <div style="font-size:3rem;margin-bottom:1rem"><i class="fa-solid fa-envelope-circle-check" style="color:var(--rose)"></i></div>
-                        <h3 style="font-family:'Playfair Display',serif;font-size:1.5rem;margin-bottom:0.8rem">Demande envoyée !</h3>
-                        <p style="color:var(--gray-soft)">Je te répondrai <strong>sous 48h</strong> pour te confirmer si ta demande est acceptée. Merci de ta confiance !</p>
-                    </div>
+                    <div id="contactSuccess" style="display:none;text-align:center;padding:3rem 2rem"><div style="font-size:3rem;margin-bottom:1rem"><i class="fa-solid fa-envelope-circle-check" style="color:var(--rose)"></i></div><h3 style="font-family:'Playfair Display',serif;font-size:1.5rem;margin-bottom:0.8rem">Demande envoyée !</h3><p style="color:var(--gray-soft)">Je te répondrai <strong>sous 48h</strong>. Merci de ta confiance !</p></div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- ========== FOOTER ========== -->
     <footer>
         <div class="footer-brand">
-            <div class="footer-logo">
-                <img src="https://raw.githubusercontent.com/DeliceByNaoual/Delice-by-Naoual/main/image/gateau.png"
-                alt="Logo Délice by Naoual" class="footer-logo-img">
-                Délice <span class="by">by</span> Naoual
-            </div>
+            <div class="footer-logo"><img src="https://raw.githubusercontent.com/DeliceByNaoual/Delice-by-Naoual/main/image/gateau.png" alt="Logo Délice by Naoual" class="footer-logo-img"> Délice <span class="by">by</span> Naoual</div>
             <p class="footer-desc">Pâtisserie artisanale haut de gamme, 100% sur commande. Chaque création est une œuvre d'art comestible, façonnée avec amour et passion.</p>
-            <p class="footer-market">
-                <i class="fa-solid fa-store"></i> Retrouve-moi tous les <strong>samedis</strong> au marché de <strong>Behren-lès-Forbach</strong> les trompe-l'œil sont vendus sur place, ou sur commande.
-            </p>
+            <p class="footer-market"><i class="fa-solid fa-store"></i> Retrouve-moi tous les <strong>samedis</strong> au marché de <strong>Behren-lès-Forbach</strong> les trompe-l'œil sont vendus sur place, ou sur commande.</p>
             <div class="footer-social">
                 <a href="https://www.instagram.com/les_patisseries_de_naoual" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
                 <a href="https://www.snapchat.com/@delice_bynaoual" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Snapchat"><i class="ph ph-snapchat-logo"></i></a>
@@ -1656,51 +1303,109 @@
         </div>
     </footer>
 
-    <!-- TOAST -->
     <div class="toast" id="toast"></div>
 
     <script>
         (function() {
-            /* ========== DONNÉES PRODUITS ========== */
-            const PRODUCTS = [
-                { id: 'trompe-cacahuete', name: 'Trompe-l\'œil Cacahuète', category: 'trompe', catLabel: 'Trompe-l\'œil',
-                    img: 'https://raw.githubusercontent.com/zznkch/D-lice/main/trompe/cacahouete.png',
-                    desc: 'Une cacahuète tellement réaliste qu\'on n\'ose pas la croquer',
-                    bgIcon: 'fa-solid fa-seedling' },
-                { id: 'trompe-cafe', name: 'Trompe-l\'œil Café', category: 'trompe', catLabel: 'Trompe-l\'œil',
-                    img: 'https://raw.githubusercontent.com/zznkch/D-lice/main/trompe/caf%C3%A9.png',
-                    desc: 'Explosion d\'arômes caféinés dans une œuvre d\'art comestible trompeuse',
-                    bgIcon: 'fa-solid fa-coffee' },
-                { id: 'trompe-chocolat', name: 'Trompe-l\'œil Chocolat', category: 'trompe', catLabel: 'Trompe-l\'œil',
-                    img: 'https://raw.githubusercontent.com/zznkch/D-lice/main/trompe/chocolat.png',
-                    desc: 'Ma signature absolue un chef-d\'œuvre artistique et gourmand inoubliable',
-                    bgIcon: 'fa-solid fa-candy-cane' },
-                { id: 'trompe-citron', name: 'Trompe-l\'œil Citron', category: 'trompe', catLabel: 'Trompe-l\'œil',
-                    img: 'https://raw.githubusercontent.com/zznkch/D-lice/main/trompe/citron.png',
-                    desc: 'Un citron qui cache son acidité',
-                    bgIcon: 'fa-solid fa-lemon' },
-                { id: 'trompe-framboise', name: 'Trompe-l\'œil Framboise', category: 'trompe', catLabel: 'Trompe-l\'œil',
-                    img: 'https://raw.githubusercontent.com/zznkch/D-lice/main/trompe/framboise.png',
-                    desc: 'Une framboise géante hypnotique',
-                    bgIcon: 'fa-solid fa-wine-bottle' },
-                { id: 'trompe-mangue', name: 'Trompe-l\'œil Mangue', category: 'trompe', catLabel: 'Trompe-l\'œil',
-                    img: 'https://raw.githubusercontent.com/zznkch/D-lice/main/trompe/mangue.png',
-                    desc: 'Une mangue trop parfaite pour être vraie',
-                    bgIcon: 'fa-solid fa-sun' },
-                { id: 'trompe-pomme', name: 'Trompe-l\'œil Pomme', category: 'trompe', catLabel: 'Trompe-l\'œil',
-                    img: 'https://raw.githubusercontent.com/zznkch/D-lice/main/trompe/pomme.png',
-                    desc: 'La pomme qui trompe tout le monde',
-                    bgIcon: 'fa-solid fa-apple-whole' },
+            const SVG_ICONS = {
+                cacao: 'https://raw.githubusercontent.com/zznkch/D-lice/main/color%C3%A9/cacao.svg',
+                citron: 'https://raw.githubusercontent.com/zznkch/D-lice/main/color%C3%A9/citron.svg',
+                coffee: 'https://raw.githubusercontent.com/zznkch/D-lice/main/color%C3%A9/coffee.svg',
+                framboiseBleu: 'https://raw.githubusercontent.com/zznkch/D-lice/main/color%C3%A9/framboise-bleu.svg',
+                framboiseRose: 'https://raw.githubusercontent.com/zznkch/D-lice/main/color%C3%A9/framboise-rose.svg',
+                pommeVerte: 'https://raw.githubusercontent.com/zznkch/D-lice/main/color%C3%A9/pomme-verte.svg',
+                pommeRouge: 'https://raw.githubusercontent.com/zznkch/D-lice/main/color%C3%A9/pomme-rouge.svg',
+                mangue: 'https://raw.githubusercontent.com/zznkch/D-lice/main/color%C3%A9/mangue.svg',
+                peanut: 'https://raw.githubusercontent.com/zznkch/D-lice/main/color%C3%A9/peanut.svg'
+            };
+
+            const CATEGORIES = [
+                {
+                    id: 'trompe',
+                    label: 'Trompe-l\'œil',
+                    products: [
+                        { id:'trompe-framboise', name:'Trompe-l\'œil Framboise', price:'6,50€', img:'https://raw.githubusercontent.com/zznkch/D-lice/main/trompe/framboise.png', desc:'Une framboise géante hypnotique', icon: SVG_ICONS.framboiseRose },
+                        { id:'trompe-citron', name:'Trompe-l\'œil Citron', price:'6,50€', img:'https://raw.githubusercontent.com/zznkch/D-lice/main/trompe/citron.png', desc:'Un citron qui cache son acidité', icon: SVG_ICONS.citron },
+                        { id:'trompe-cafe', name:'Trompe-l\'œil Café', price:'6,50€', img:'https://raw.githubusercontent.com/zznkch/D-lice/main/trompe/caf%C3%A9.png', desc:'Explosion d\'arômes caféinés', icon: SVG_ICONS.coffee },
+                        { id:'trompe-chocolat', name:'Trompe-l\'œil Chocolat', price:'6,50€', img:'https://raw.githubusercontent.com/zznkch/D-lice/main/trompe/chocolat.png', desc:'Ma signature absolue', icon: SVG_ICONS.cacao },
+                        { id:'trompe-pomme', name:'Trompe-l\'œil Pomme', price:'5,00€', img:'https://raw.githubusercontent.com/zznkch/D-lice/main/trompe/pomme.png', desc:'La pomme qui trompe tout le monde', icon: SVG_ICONS.pommeRouge },
+                        { id:'trompe-mangue', name:'Trompe-l\'œil Mangue', price:'7,50€', img:'https://raw.githubusercontent.com/zznkch/D-lice/main/trompe/mangue.png', desc:'Une mangue trop parfaite', icon: SVG_ICONS.mangue },
+                        { id:'trompe-cacahuete', name:'Trompe-l\'œil Cacahuète', price:'7,50€', img:'https://raw.githubusercontent.com/zznkch/D-lice/main/trompe/cacahouete.png', desc:'On n\'ose pas la croquer', icon: SVG_ICONS.peanut }
+                    ]
+                },
+                {
+                    id: 'tartelettes',
+                    label: 'Tartelettes',
+                    priceLabel: '3,90€',
+                    products: [
+                        { id:'tartelette-citron', name:'Tartelette Citron meringuée', price:'3,90€', img:'', desc:'', icon:'' },
+                        { id:'tartelette-framboise', name:'Tartelette Framboise', price:'3,90€', img:'', desc:'', icon:'' },
+                        { id:'tartelette-fraise', name:'Tartelette Fraise', price:'3,90€', img:'', desc:'', icon:'' },
+                        { id:'tartelette-fruits', name:'Tartelette Fruits', price:'3,90€', img:'', desc:'', icon:'' },
+                        { id:'tartelette-framboise-creme', name:'Tartelette Framboise/crème brûlée', price:'3,90€', img:'', desc:'', icon:'' },
+                        { id:'tartelette-snikers', name:'Tartelette Façon snikers', price:'3,90€', img:'', desc:'', icon:'' }
+                    ]
+                },
+                {
+                    id: 'cupcakes',
+                    label: 'Cupcakes / Muffins',
+                    priceLabel: '3,00€',
+                    products: [
+                        { id:'cupcake-oreo', name:'Cupcake Oreo', price:'3,00€', img:'', desc:'', icon:'' },
+                        { id:'cupcake-kinder', name:'Cupcake Kinder', price:'3,00€', img:'', desc:'', icon:'' },
+                        { id:'cupcake-exotique', name:'Cupcake exotique', price:'3,00€', img:'', desc:'', icon:'' },
+                        { id:'cupcake-classic', name:'Cupcake', price:'3,00€', img:'', desc:'', icon:'' },
+                        { id:'muffin-choco', name:'Muffins choco', price:'3,00€', img:'', desc:'', icon:'' },
+                        { id:'muffin-nature', name:'Muffins nature', price:'3,00€', img:'', desc:'', icon:'' }
+                    ]
+                },
+                {
+                    id: 'patisseries',
+                    label: 'Différentes pâtisseries',
+                    products: [
+                        { id:'paris-brest', name:'Paris-brest', price:'3,90€', img:'', desc:'', icon:'' },
+                        { id:'tropézienne', name:'Tropézienne', price:'3,90€', img:'', desc:'', icon:'' },
+                        { id:'opera', name:'Opéra', price:'3,90€', img:'', desc:'', icon:'' },
+                        { id:'foret-noire', name:'Forêt Noire', price:'2,90€', img:'', desc:'', icon:'' },
+                        { id:'tiramisu', name:'Tiramisu', price:'2,90€', img:'', desc:'', icon:'' },
+                        { id:'trois-choco', name:'Trois Choco', price:'3,90€', img:'', desc:'', icon:'' },
+                        { id:'macaron-xi', name:'Macaron XI Framboise', price:'3,90€', img:'', desc:'', icon:'' },
+                        { id:'choux-praline', name:'Choux praliné', price:'2,90€', img:'', desc:'', icon:'' },
+                        { id:'macaron', name:'Macaron', price:'1,90€/unité', img:'', desc:'', icon:'' },
+                        { id:'cookies-gourmand', name:'Cookies gourmand', price:'3,00€', img:'', desc:'', icon:'' },
+                        { id:'cookies-milka', name:'Cookies Milka', price:'1,90€/unité', img:'', desc:'', icon:'' }
+                    ]
+                },
+                {
+                    id: 'box',
+                    label: 'Box à offrir',
+                    priceLabel: '25,00€',
+                    products: [
+                        { id:'box-offrir', name:'Box cadeau gourmande', price:'25,00€', img:'', desc:'Deux marbrés, pot de caramel beurre salé, pot de praliné maison, 5 macarons, 2 cookies gourmands et objet personnalisé en option.', icon:'' }
+                    ]
+                },
+                {
+                    id: 'gateaux',
+                    label: 'Gâteaux (10 personnes)',
+                    products: [
+                        { id:'gateau-foret-noire', name:'Forêt Noire', price:'25,00€', img:'', desc:'', icon:'' },
+                        { id:'gateau-tarte-fromage', name:'Tarte au fromage', price:'28,00€', img:'', desc:'', icon:'' },
+                        { id:'gateau-citron-meringuee', name:'Tarte au citron meringuée', price:'25,00€', img:'', desc:'', icon:'' },
+                        { id:'gateau-tarte-fruits', name:'Tarte aux fruits', price:'22,00€', img:'', desc:'', icon:'' },
+                        { id:'gateau-tarte-pommes', name:'Tarte aux pommes', price:'22,00€', img:'', desc:'', icon:'' },
+                        { id:'gateau-tarte-tatin', name:'Tarte tatin', price:'22,00€', img:'', desc:'', icon:'' },
+                        { id:'gateau-flan', name:'Flan', price:'28,00€', img:'', desc:'', icon:'' }
+                    ]
+                }
             ];
 
-            /* ========== ÉTAT GLOBAL ========== */
+            const trompeProducts = CATEGORIES.find(c => c.id === 'trompe').products;
             let currentPage = 'home';
             let carouselPos = 0;
             let carouselAuto;
             let carouselVisible = 3;
             let toastTimeout;
 
-            /* ========== FONCTIONS CAROUSEL ========== */
             function getCarouselVisible() {
                 const w = window.innerWidth;
                 if (w <= 600) return 1;
@@ -1711,25 +1416,19 @@
 
             function updateCarouselSlides() {
                 const newVisible = getCarouselVisible();
-                if (newVisible !== carouselVisible) {
-                    carouselVisible = newVisible;
-                    const slides = document.querySelectorAll('.carousel-slide');
-                    const track = document.getElementById('carouselTrack');
-                    if (!track) return;
-                    const gap = parseFloat(getComputedStyle(track).gap) || 24;
-                    slides.forEach(s => {
-                        if (carouselVisible === 1) {
-                            s.style.width = '100%';
-                        } else if (carouselVisible === 2) {
-                            s.style.width = `calc((100% - ${gap}px) / 2)`;
-                        } else {
-                            s.style.width = `calc((100% - 2 * ${gap}px) / 3)`;
-                        }
-                    });
-                    carouselPos = 0;
-                    initCarouselDots();
-                    setCarousel(0);
-                }
+                if (newVisible !== carouselVisible) carouselVisible = newVisible;
+                const slides = document.querySelectorAll('.carousel-slide');
+                const track = document.getElementById('carouselTrack');
+                if (!track) return;
+                const gap = parseFloat(getComputedStyle(track).gap) || 24;
+                slides.forEach(s => {
+                    if (carouselVisible === 1) s.style.width = '100%';
+                    else if (carouselVisible === 2) s.style.width = `calc((100% - ${gap}px) / 2)`;
+                    else s.style.width = `calc((100% - 2 * ${gap}px) / 3)`;
+                });
+                carouselPos = 0;
+                initCarouselDots();
+                setCarousel(0);
             }
 
             function initCarouselDots() {
@@ -1768,77 +1467,62 @@
                 resetCarouselAuto();
             }
 
-            function startCarouselAuto() {
-                stopCarouselAuto();
-                carouselAuto = setInterval(() => moveCarousel(1), 3500);
-            }
+            function startCarouselAuto() { stopCarouselAuto(); carouselAuto = setInterval(() => moveCarousel(1), 3500); }
+            function stopCarouselAuto() { if (carouselAuto) clearInterval(carouselAuto); }
+            function resetCarouselAuto() { stopCarouselAuto(); startCarouselAuto(); }
 
-            function stopCarouselAuto() {
-                if (carouselAuto) clearInterval(carouselAuto);
-            }
-
-            function resetCarouselAuto() {
-                stopCarouselAuto();
-                startCarouselAuto();
+            function renderCarouselSlides() {
+                const track = document.getElementById('carouselTrack');
+                if (!track) return;
+                track.innerHTML = trompeProducts.map(p => `
+                    <div class="carousel-slide" onclick="navigate('contact')">
+                        <div class="carousel-img-wrap">
+                            <div class="carousel-flavor-icon"><img src="${p.icon}" alt="" onerror="this.style.display='none'"></div>
+                            <img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.style.opacity='0.3'">
+                        </div>
+                        <div class="carousel-info">
+                            <div class="carousel-name">${p.name}</div>
+                            <div class="carousel-price">${p.price}</div>
+                            <div class="carousel-flavor">Trompe-l'œil artistique</div>
+                            <button class="btn-request" onclick="event.stopPropagation(); navigate('contact')"><i class="fa-solid fa-paper-plane"></i> Demande commande</button>
+                        </div>
+                    </div>
+                `).join('');
             }
 
             function initCarousel() {
                 carouselVisible = getCarouselVisible();
-                const slides = document.querySelectorAll('.carousel-slide');
-                const track = document.getElementById('carouselTrack');
-                if (!track || !slides.length) return;
-                const gap = parseFloat(getComputedStyle(track).gap) || 24;
-                slides.forEach(s => {
-                    if (carouselVisible === 1) {
-                        s.style.width = '100%';
-                    } else if (carouselVisible === 2) {
-                        s.style.width = `calc((100% - ${gap}px) / 2)`;
-                    } else {
-                        s.style.width = `calc((100% - 2 * ${gap}px) / 3)`;
-                    }
-                });
+                renderCarouselSlides();
+                updateCarouselSlides();
                 initCarouselDots();
                 setCarousel(0);
                 startCarouselAuto();
-
-                let startX = 0,
-                    isDragging = false;
-                track.addEventListener('touchstart', e => {
-                    startX = e.touches[0].clientX;
-                    isDragging = true;
-                }, { passive: true });
-                track.addEventListener('touchend', e => {
-                    if (!isDragging) return;
-                    isDragging = false;
-                    const diff = startX - e.changedTouches[0].clientX;
-                    if (Math.abs(diff) > 30) moveCarousel(diff > 0 ? 1 : -1);
-                });
+                const track = document.getElementById('carouselTrack');
+                if (track) {
+                    let startX = 0, isDragging = false;
+                    track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; isDragging = true; }, { passive: true });
+                    track.addEventListener('touchend', e => {
+                        if (!isDragging) return;
+                        isDragging = false;
+                        const diff = startX - e.changedTouches[0].clientX;
+                        if (Math.abs(diff) > 30) moveCarousel(diff > 0 ? 1 : -1);
+                    });
+                }
             }
 
-            /* ========== NAVIGATION ========== */
             function navigate(page) {
                 document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
                 const target = document.getElementById('page-' + page);
                 if (target) target.classList.add('active');
-                document.querySelectorAll('nav a').forEach(a => {
-                    a.classList.remove('active');
-                    if (a.dataset.page === page) a.classList.add('active');
-                });
+                document.querySelectorAll('nav a').forEach(a => { a.classList.remove('active'); if (a.dataset.page === page) a.classList.add('active'); });
                 window.scrollTo({ top: 0, behavior: 'smooth' });
                 currentPage = page;
                 if (page === 'shop') renderShop();
-                if (page === 'home') {
-                    renderHomeGrid();
-                    updateCarouselSlides();
-                    initCarouselDots();
-                    setCarousel(0);
-                    resetCarouselAuto();
-                }
+                if (page === 'home') { renderHomeGrid(); updateCarouselSlides(); initCarouselDots(); setCarousel(0); resetCarouselAuto(); }
                 setTimeout(initReveal, 150);
                 return false;
             }
 
-            /* ========== MOBILE MENU ========== */
             function toggleMenu() {
                 const menu = document.getElementById('mobileMenu');
                 const hamburger = document.getElementById('hamburger');
@@ -1848,119 +1532,105 @@
                 document.body.style.overflow = isOpen ? '' : 'hidden';
             }
 
-            /* ========== RENDU PRODUITS ========== */
-            function renderProductCard(p) {
+            function renderProductCard(p, categoryId) {
+                const hasIcon = p.icon && p.icon.length > 0;
+                const hasImg = p.img && p.img.length > 0;
+                const showImgWrap = hasImg || hasIcon;
                 return `
                 <div class="product-card reveal">
-                  <div class="product-img-wrap">
-                    <img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.style.opacity='0.3'">
-                    <i class="${p.bgIcon} product-bg-icon"></i>
-                  </div>
-                  <div class="product-info">
-                    <div class="product-category">${p.catLabel}</div>
-                    <div class="product-name">${p.name}</div>
-                    <div class="product-desc">${p.desc}</div>
-                    <div class="product-footer">
-                      <button class="btn-request" onclick="navigate('contact')">
-                        <i class="fa-solid fa-paper-plane"></i> Demande commande
-                      </button>
+                    ${showImgWrap ? `<div class="product-img-wrap">
+                        ${hasImg ? `<img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.style.opacity='0.3'">` : ''}
+                        ${hasIcon ? `<div class="product-bg-icon"><img src="${p.icon}" alt="" onerror="this.style.display='none'"></div>` : ''}
+                    </div>` : ''}
+                    <div class="product-info">
+                        <div class="product-category">${CATEGORIES.find(c=>c.id===categoryId)?.label||''}</div>
+                        <div class="product-name">${p.name}</div>
+                        <div class="product-price">${p.price}</div>
+                        ${p.desc ? `<div class="product-desc">${p.desc}</div>` : ''}
+                        <div class="product-footer">
+                            <button class="btn-request" onclick="navigate('contact')"><i class="fa-solid fa-paper-plane"></i> Demande commande</button>
+                        </div>
                     </div>
-                  </div>
                 </div>`;
             }
 
             function renderHomeGrid() {
-                const grid = document.getElementById('homeProductGrid');
-                if (!grid) return;
-                grid.innerHTML = PRODUCTS.map(p => renderProductCard(p)).join('');
+                const container = document.getElementById('homeProductGridContainer');
+                if (!container) return;
+                let html = '';
+                CATEGORIES.forEach(cat => {
+                    html += `<div class="category-block"><h3 class="category-title">${cat.label}</h3><div class="product-grid">`;
+                    cat.products.forEach(p => html += renderProductCard(p, cat.id));
+                    html += `</div></div>`;
+                });
+                container.innerHTML = html;
                 setTimeout(initReveal, 100);
             }
 
             function renderShop() {
                 const grid = document.getElementById('shopGrid');
                 if (!grid) return;
-                grid.innerHTML = PRODUCTS.map(p => renderProductCard(p)).join('');
+                let html = '';
+                CATEGORIES.forEach(cat => {
+                    html += `<div class="category-block"><h3 class="category-title">${cat.label}</h3><div class="product-grid">`;
+                    cat.products.forEach(p => html += renderProductCard(p, cat.id));
+                    html += `</div></div>`;
+                });
+                grid.innerHTML = html;
                 setTimeout(initReveal, 100);
             }
 
-            /* ========== FORMULAIRE CONTACT ========== */
+            // Gestion du formulaire : ouverture du client mail avec message pré-rédigé
             const contactForm = document.getElementById('contactForm');
-            const contactSuccess = document.getElementById('contactSuccess');
-
             contactForm.addEventListener('submit', function(e) {
                 e.preventDefault();
-                const formData = new FormData(contactForm);
-                fetch(contactForm.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: { 'Accept': 'application/json' }
-                })
-                .then(response => {
-                    if (response.ok) {
-                        contactForm.style.display = 'none';
-                        contactSuccess.style.display = 'block';
-                        showToast('<i class="fa-solid fa-envelope-circle-check"></i> Demande envoyée avec succès ! Réponse sous 48h.');
-                    } else {
-                        showToast('<i class="fa-solid fa-triangle-exclamation"></i> Une erreur est survenue. Réessaie plus tard.');
-                    }
-                })
-                .catch(() => {
-                    showToast('<i class="fa-solid fa-triangle-exclamation"></i> Erreur réseau. Vérifie ta connexion.');
-                });
+                const name = document.getElementById('contactName').value.trim();
+                const email = document.getElementById('contactEmail').value.trim();
+                const message = document.getElementById('contactMsg').value.trim();
+                
+                const subject = encodeURIComponent("Nouvelle demande de commande - Délice by Naoual");
+                const body = encodeURIComponent(
+                    `Bonjour Naoual,\n\n` +
+                    `Je m'appelle ${name} (${email}) et je souhaite passer une commande.\n\n` +
+                    `Voici ma demande :\n${message}\n\n` +
+                    `Merci de me confirmer la disponibilité et le délai (une semaine à l'avance).\n` +
+                    `Cordialement,\n${name}`
+                );
+                
+                const mailtoLink = `mailto:delicebynaoual@gmail.com?subject=${subject}&body=${body}`;
+                
+                // Ouvre le client de messagerie
+                window.location.href = mailtoLink;
+                
+                // Réinitialise le formulaire et affiche un toast informatif
+                contactForm.reset();
+                showToast('<i class="fa-solid fa-envelope"></i> Votre client mail s\'ouvre... Vérifiez le message avant envoi.');
             });
 
-            /* ========== TOAST ========== */
             function showToast(msg) {
                 const toast = document.getElementById('toast');
                 if (!toast) return;
                 if (toastTimeout) clearTimeout(toastTimeout);
                 toast.innerHTML = msg;
                 toast.classList.add('show');
-                toastTimeout = setTimeout(() => toast.classList.remove('show'), 3500);
+                toastTimeout = setTimeout(() => toast.classList.remove('show'), 4500);
             }
 
-            /* ========== REVEAL ANIMATIONS ========== */
             function initReveal() {
-                const obs = new IntersectionObserver((entries) => {
-                    entries.forEach(e => {
-                        if (e.isIntersecting) e.target.classList.add('visible');
-                    });
-                }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+                const obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
                 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
             }
 
-            /* ========== ÉCOUTEURS GLOBAUX ========== */
-            window.addEventListener('scroll', () => {
-                const h = document.getElementById('mainHeader');
-                if (h) h.classList.toggle('scrolled', window.scrollY > 60);
-            }, { passive: true });
-
+            window.addEventListener('scroll', () => { const h = document.getElementById('mainHeader'); if (h) h.classList.toggle('scrolled', window.scrollY > 60); }, { passive: true });
             window.addEventListener('resize', () => {
                 if (window.innerWidth > 900) {
-                    const menu = document.getElementById('mobileMenu');
-                    const hamburger = document.getElementById('hamburger');
-                    if (menu && menu.classList.contains('open')) {
-                        menu.classList.remove('open');
-                        hamburger.classList.remove('open');
-                        document.body.style.overflow = '';
-                    }
+                    const menu = document.getElementById('mobileMenu'), hamburger = document.getElementById('hamburger');
+                    if (menu && menu.classList.contains('open')) { menu.classList.remove('open'); hamburger.classList.remove('open'); document.body.style.overflow = ''; }
                 }
-                updateCarouselSlides();
-                initCarouselDots();
-                setCarousel(carouselPos);
+                updateCarouselSlides(); initCarouselDots(); setCarousel(carouselPos);
             });
-
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') {
-                    const menu = document.getElementById('mobileMenu');
-                    if (menu && menu.classList.contains('open')) toggleMenu();
-                }
-            });
-
-            document.querySelectorAll('nav a, .mobile-menu a').forEach(a => {
-                a.addEventListener('click', e => e.preventDefault());
-            });
-
+            document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { const menu = document.getElementById('mobileMenu'); if (menu && menu.classList.contains('open')) toggleMenu(); } });
+            document.querySelectorAll('nav a, .mobile-menu a').forEach(a => a.addEventListener('click', e => e.preventDefault()));
             const carouselWrapper = document.querySelector('.carousel-wrapper');
             if (carouselWrapper) {
                 carouselWrapper.addEventListener('mouseenter', stopCarouselAuto);
@@ -1969,14 +1639,10 @@
                 carouselWrapper.addEventListener('touchend', () => setTimeout(startCarouselAuto, 2000));
             }
 
-            /* ========== INITIALISATION ========== */
             initCarousel();
             initReveal();
             renderHomeGrid();
             renderShop();
-            updateCarouselSlides();
-            initCarouselDots();
-            setCarousel(0);
 
             window.navigate = navigate;
             window.toggleMenu = toggleMenu;
